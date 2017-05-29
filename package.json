@@ -1,0 +1,9 @@
+{
+  "name": "sparkle",
+  "version": "0.0.1",
+  "description": "frontend development for doboom",
+  "main": "index.js",
+  "repository": "git@github.com:zypeh/sparkle.git",
+  "author": "zypeh <zypeh.geek@gmail.com>",
+  "license": "ISC"
+}
