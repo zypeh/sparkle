@@ -3,30 +3,21 @@
     <div class="home-view">
       <!-- left
       show top button, and the user related operation if there is any.-->
-      <sidebar></sidebar>
+      <!--<sidebar></sidebar>-->
       <!-- center
       mostly content and main viewport. -->
-      <sidebar></sidebar>
+      <!--<sidebar></sidebar>-->
       <!-- right -->
-      <sidebar></sidebar>
+      <!--<sidebar></sidebar>-->
     </div>
   </section>
 </template>
 
-<style lang="sass" scoped>
-section {
-  .home-view {
-    display: flex;
-    flex-direction: row;
-  }
-}
-</style>
+<style></style>
 <script>
-import sidebar from '../components/sidebar.vue'
+//import sidebar from '../components/sidebar.vue'
 
 export default {
-  components: {
-    sidebar
-  }
+  //components: {sidebar}
 }
 </script>
