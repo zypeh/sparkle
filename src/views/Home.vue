@@ -5,27 +5,47 @@
 				<h2>The world need you to</h2>
 				<h1 class="blue-text">Re-invent</h1>
   		</div>
-      <!-- left
-      show top button, and the user related operation if there is any.-->
-      <!--<sidebar></sidebar>-->
-      <!-- center
-      mostly content and main viewport. -->
-      <!--<sidebar></sidebar>-->
-      <!-- right -->
-      <!--<sidebar></sidebar>-->
-        hello world
+      <div v-swiper:mySwiper="swiperOption">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="banner in banners">
+            <img :src="banner">
+          </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-bullets"></div>
+      </div>
     </div>
   </section>
 </template>
 
 
 <script>
-//import sidebar from '../components/sidebar.vue'
-
-
-export default {
-  //components: {sidebar}
-}
+  export default {
+    data () {
+      return {
+        banners: [ '/public/logo.png', '/public/logo.png', '/public/logo.png' ],
+        swiperOption: {
+          autoplay: 5000,
+          initialSlide: 1,
+          loop: true,
+          pagination: '.swiper-pagination',
+          onSlideChangeEnd: swiper => {
+            console.log('onSlideChangeEnd', swiper.realIndex)
+          }
+        }
+      }
+    },
+    mounted() {
+      console.log('app init')
+      setTimeout(() => {
+        this.banners.push('/public/user.png')
+        console.log('banners update')
+      }, 3000)
+      console.log(
+        'This is current swiper instance object', this.mySwiper, 
+        'It will slideTo banners 3')
+      this.mySwiper.slideTo(3)
+    }
+  }
 </script>
 
 <style>

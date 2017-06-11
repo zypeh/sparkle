@@ -6,6 +6,11 @@ import { sync } from 'vuex-router-sync'
 
 import VueAuthentice from 'vue-authenticate'
 
+if (process.env.VUE_ENV === "client") {
+  const VueAwesomeSwiper = require('vue-awesome-swiper/ssr')
+  Vue.use(VueAwesomeSwiper)
+}
+
 // Middleware
 Vue.use(VueAuthentice, {
   baseUrl: 'http://localhost:3000', // API domain
