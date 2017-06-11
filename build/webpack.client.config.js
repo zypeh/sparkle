@@ -41,8 +41,9 @@ if (isProd) {
     new SWPrecachePlugin({
       cacheId: 'swaghouse',
       filename: 'service-worker.js',
+      minify: true,
       dontCacheBustUrlsMatching: /./,
-      staticFileGlobsIgnorePatterns: [/index\.html$/, /\.mao$/]
+      staticFileGlobsIgnorePatterns: [/index\.html$/, /\.map$/]
     })
   )
 }

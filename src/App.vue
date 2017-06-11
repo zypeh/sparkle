@@ -32,7 +32,7 @@
       </main>
     </transition>
     <!-- footer section -->
-    <swagness></swagness>
+    <!--<swagness></swagness>-->
   </div>
 </template>
 <style lang="less" src="./styles/spectre-master/spectre.less"></style>
