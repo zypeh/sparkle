@@ -73,3 +73,17 @@ export default {
     }
   }
 </style>
+<style>
+	.slogan{
+		padding: 40px 0px;
+	}
+	.slogan h1 ,.slogan h2{
+		margin: 0px;
+	}
+	.slogan h1{
+		font-size: 6rem;
+	}
+	.slogan h2{
+		font-size: 5rem;
+	}
+</style>

@@ -32,3 +32,23 @@
   </div>
 </template>
 
+<style>
+	.navbar{
+		width: 960px;
+		margin: 0 auto;
+		padding: 5px 0px;
+	}
+	.blue-text{
+		color: #2196F3;
+	}
+	.logo img ,.logo span{
+		vertical-align: middle;
+	}
+	.logo span{
+		font-size: 18px;
+		padding: 5px;
+	}
+	.container{
+		width: 980px;
+	}
+</style>
