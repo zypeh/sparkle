@@ -53,12 +53,17 @@
 			<div class="swiper-button-prev swiper-button-grey" slot="button-prev"></div>
 			<div class="swiper-button-next swiper-button-grey" slot="button-next"></div>
 			</div>
+      <sidebar/>
 		</div>
   </section>
 </template>
-
 <script>
+import Sidebar from '~components/sidebar.vue';
 export default {
+  components: {
+    Sidebar
+  },
+
   layout: 'default',
 
   data () {
