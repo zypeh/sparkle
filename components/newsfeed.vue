@@ -25,68 +25,18 @@
         <div class="time grey">8hrs ago</div>
       </div>
       <div class="divider"></div>
-      <div class="card-footer grey">
-        <div class="action">
-          <div class="action-img">
-            <img src="~static/like.png">
-          </div>
+      <div class="card-footer grey" id="action-card">
+        <div :style="{color: color}" class="action like" v-on:click="changeColor">
+          <span class="icon-like"></span>
           <span>Like</span>
         </div>
-        <div class="action">
-          <div class="action-img">
-            <img src="~static/like.png">
-          </div>
-          <span>Like</span>
+        <div class="action comment">
+          <span class="icon-comment"></span>
+          <span>Comment</span>
         </div>
-        <div class="action">
-          <div class="action-img">
-            <img src="~static/like.png">
-          </div>
-          <span>Like</span>
-        </div>
-      </div>
-    </div>
-    <!-- NewsFeed Card End -->
-    <!-- NewsFeed Card Start -->
-    <div class="card">
-      <div class="card-header">
-        <figure class="avatar avatar-sm">
-          <img src="~static/user.png" />
-        </figure>
-        <div class="title">
-          <div class="title-desc">
-            <a class="text-bold black">Alex Tim</a>
-            posted a post at
-            <a class="text-bold black">Google</a>
-          </div>
-          <div class="role">
-            Founder of Tex Inc.
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ</a>
-        <div class="time grey">8hrs ago</div>
-      </div>
-      <div class="divider"></div>
-      <div class="card-footer grey">
-        <div class="action">
-          <div class="action-img">
-            <img src="~static/like.png">
-          </div>
-          <span>Like</span>
-        </div>
-        <div class="action">
-          <div class="action-img">
-            <img src="~static/like.png">
-          </div>
-          <span>Like</span>
-        </div>
-        <div class="action">
-          <div class="action-img">
-            <img src="~static/like.png">
-          </div>
-          <span>Like</span>
+        <div class="action share">
+          <span class="icon-share-icon"></span>
+          <span>Share</span>
         </div>
       </div>
     </div>
@@ -95,6 +45,18 @@
 </template>
 
 <script>
+export default{
+  data (){
+    return {
+        color: "#95989A"
+    }
+  },
+  methods(){
+      changeColor: () => {
+          this.color = "#000"
+      }
+  }
+}
 </script>
 
 <style scoped>
@@ -139,19 +101,15 @@
     padding: 0em 1em;
     padding-bottom: 0.6em;
   }
-  .action img{
-    height: 20px;
-  }
-  .action-img{
-    display: inline-block;
-    vertical-align: middle;
-  }
   .action{
     display: inline-block;
     padding-right: 0.5em;
+    cursor: pointer;
   }
   .action span{
-    font-size: 0.87em;
+    font-size: 1em;
     padding: 3px;
+    display: inline-block;
+    vertical-align: middle;
   }
 </style>
