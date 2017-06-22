@@ -6,11 +6,14 @@
         <h1 class="blue-text">Re-invent</h1>
       </div>
       <slider/>
-      <div class="float-left" style="width:250px;">
-        <sidebar/>
-      </div>
-      <div class="float-right newsfeed">
-        <newsfeed/>
+      <modal/>
+      <div style="margin-top:20px;">
+        <div class="float-left" style="width:250px;">
+          <sidebar/>
+        </div>
+        <div class="float-right newsfeed">
+          <newsfeed/>
+        </div>
       </div>
     </div>
   </section>
@@ -19,12 +22,13 @@
   import Sidebar from '~components/sidebar.vue';
   import Newsfeed from '~components/newsfeed.vue';
   import Slider from '~components/slider.vue';
-
+  import Modal from '~components/modal.vue';
   export default {
     components: {
       Sidebar,
       Newsfeed,
-      Slider
+      Slider,
+      Modal
     },
 
     layout: 'default',

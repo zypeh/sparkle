@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- navigation bar -->
-    <header class="navbar">
+    <header class="navbar-container">
+      <div class="navbar">
         <section class="navbar-section">
             <a href="/" class="navbar-brand logo">
               <img src="~static/logo.svg" height="40px">
@@ -22,10 +23,11 @@
                 </ul>
             </div>
         </section>
+      </div>
     </header>
     
     <!-- content -->
-    <main class="content" role="main">
+    <main class="content" role="main" style="margin-top:50px;">
       <nuxt/>
     </main>
 
@@ -33,7 +35,7 @@
 </template>
 
 <style>
-	.navbar{
+  .navbar{
 		width: 960px;
 		margin: 0 auto;
 		padding: 10px 0px;
@@ -48,5 +50,11 @@
 		font-size: 18px;
 		padding: 5px;
 	}
-
+  .navbar-container{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+  }
 </style>

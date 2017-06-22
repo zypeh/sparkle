@@ -1,14 +1,14 @@
 <template>
   <section>
     <!-- NewsFeed Card Start -->
-    <div class="card">
+    <div class="card" v-for="post in posts">
       <div class="card-header">
         <figure class="avatar avatar-sm">
           <img src="~static/user.png" />
         </figure>
         <div class="title">
           <div class="title-desc">
-            <a class="text-bold black">Alex Tim</a>
+            <a class="text-bold black">{{ post.author }}</a>
             posted a post at
             <a class="text-bold black">Google</a>
           </div>
@@ -45,18 +45,27 @@
 </template>
 
 <script>
-export default{
-  data (){
-    return {
-        color: "#95989A"
-    }
-  },
-  methods(){
-      changeColor: () => {
-          this.color = "#000"
-      }
+
+  export default{
+    data(){return{
+      posts:[
+        {
+          author:'Linus Xenos',
+          org:'Google',
+          role:'Founder of Tex Inc',
+          content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
+          time:'8hrs ago'
+        },
+        {
+          author:'Linus Xenos',
+          org:'Google',
+          role:'Founder of Tex Inc',
+          content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
+          time:'8hrs ago'
+        },
+      ]
+    }}
   }
-}
 </script>
 
 <style scoped>

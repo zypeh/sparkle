@@ -3,44 +3,19 @@
   <div class="swiper-container swiper-container-horizontal" style="overflow:visible">
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="card">
+        <div class="swiper-slide" v-for="slide in slides">
+          <a class="card" href="#modal-1">
             <div class="card-image">
-              <img src="~static/aircooler.png" class="img-responsive"/>
+              <img :src="`${slide.img}`" class="img-responsive"/>
             </div>
             <div class="card-body text-ellipsis">
-              Enjoy refreshing cool air in hot summer months and much needed humidity in
+              <h6>{{ slide.title }}</h6>
+              {{ slide.slogan }}
             </div>
             <div class="card-footer">
-              17,001 follower
+              {{ slide.follower }} follower
             </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card">
-            <div class="card-image">
-              <img src="~static/key.jpg" class="img-responsive"/>
-            </div>
-            <div class="card-body text-ellipsis">
-              Enjoy refreshing cool air in hot summer months and much needed humidity in
-            </div>
-            <div class="card-footer">
-              17,001 follower
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="card">
-            <div class="card-image">
-              <img src="~static/bicycle.jpg" class="img-responsive"/>
-            </div>
-            <div class="card-body text-ellipsis">
-              Enjoy refreshing cool air in hot summer months and much needed humidity in
-            </div>
-            <div class="card-footer">
-              17,001 follower
-            </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -65,7 +40,21 @@
 				onSlideChangeEnd: swiper => {
 					console.log('onSlideChangeEnd', swiper.realIndex)
 				}
-			}
+			},
+      slides:[
+        {
+          title:'Smart Bike',
+          img:'bicycle.jpg',
+          slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
+          follower:'1122'
+        },
+        {
+          title:'Smart Key',
+          img:'key.jpg',
+          slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
+          follower:'11220'
+        },
+      ]
     }
   },
 
@@ -122,4 +111,10 @@
 	.card-footer{
 		font-size: 1.1rem;
 	}
+  .card{
+    color:inherit!important;
+  }
+  .card:hover{
+    text-decoration: none;
+  }
 </style>
