@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="card-image">
-        <img src="~static/bicycle.jpg" class="img-responsive" />
+        <img v-if="post.img" :src="`${post.img}`" class="img-responsive" />
       </div>
       <div class="card-body">
         We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ</a>
@@ -53,6 +53,7 @@
           author:'Linus Xenos',
           org:'Google',
           role:'Founder of Tex Inc',
+          img:'bicycle.jpg',
           content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
           time:'8hrs ago'
         },
@@ -60,6 +61,15 @@
           author:'Linus Xenos',
           org:'Google',
           role:'Founder of Tex Inc',
+          img:'',
+          content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
+          time:'8hrs ago'
+        },
+        {
+          author:'Linus Xenos',
+          org:'Google',
+          role:'Founder of Tex Inc',
+          img:'',
           content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
           time:'8hrs ago'
         },

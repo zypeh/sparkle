@@ -28,7 +28,7 @@
     
     <!-- content -->
     <main class="content" role="main" style="margin-top:50px;">
-      <nuxt/>
+        <nuxt/>
     </main>
 
   </div>
@@ -55,6 +55,6 @@
     top: 0;
     width: 100%;
     background-color: white;
-    z-index: 10;
+    z-index: 300;
   }
 </style>
