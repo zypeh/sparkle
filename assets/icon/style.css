@@ -25,7 +25,7 @@
 }
 
 .icon-reply:before {
-  content: "\e15e"
+  content: "\e15e";
 }
 .icon-comment:before {
   content: "\e900";
