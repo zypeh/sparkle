@@ -1,71 +1,21 @@
 <template>
   <div class="sidebar">
-    <ul class="menu">
+    <ul class="menu" v-for="menu in menus">
       <!-- menu header text -->
-      <button class="btn">Create Startup</button>
-      <li class="divider" data-content="ORGANIZATION">
+      <li class="divider" :data-content="menu.title">
+        <a :href="menu.explore" v-if="menu.explore !== ''">
+          explore<span class="icon-navigate_next icomoon" style="top:2px;"></span>
+        </a>
       </li>
       <!-- menu item -->
       <li class="menu-item">
-        <a href="#">
+        <a href="#" v-for="menu_item in menu.menu_items">
           <div class="tile tile-centered">
             <div class="tile-icon">
-              <img src="~static/logo.svg" class="avatar">
+              <img :src="menu_item.img" class="avatar">
             </div>
             <div class="tile-content">
-              Steve Rogers
-            </div>
-          </div>
-        </a>
-      </li>
-      <!-- menu divider -->
-      <li class="divider" data-content="YOUR PRODUCT">
-      </li>
-      <!-- menu item -->
-      <li class="menu-item">
-        <a href="#">
-          <div class="tile tile-centered">
-            <div class="tile-icon">
-              <img src="~static/key.jpg" class="avatar">
-            </div>
-            <div class="tile-content">
-              Smart key
-            </div>
-          </div>
-        </a>
-        <a href="#">
-          <div class="tile tile-centered">
-            <div class="tile-icon">
-              <img src="~static/bicycle.jpg" class="avatar">
-            </div>
-            <div class="tile-content">
-              Smart BIKE
-            </div>
-          </div>
-        </a>
-      </li>
-      <!-- menu divider -->
-      <li class="divider" data-content="FOLLOWED PRODUCT">
-      </li>
-      <!-- menu item -->
-      <li class="menu-item">
-        <a href="#">
-          <div class="tile tile-centered">
-            <div class="tile-icon">
-              <img src="~static/user.png" class="avatar">
-            </div>
-            <div class="tile-content">
-              Linux
-            </div>
-          </div>
-        </a>
-        <a href="#">
-          <div class="tile tile-centered">
-            <div class="tile-icon">
-              <img src="~static/aircooler.png" class="avatar">
-            </div>
-            <div class="tile-content">
-              Air cooler
+              {{menu_item.name}}
             </div>
           </div>
         </a>
@@ -75,17 +25,87 @@
 </template>
 
 <script>
+  export default{
+    data(){return{
+      menus:[
+        {
+          title:'ORGANIZATION',
+          explore:'#zz',
+          menu_items:[
+            {
+              img:'logo.svg',
+              name:'Steve Rogers'
+            }
+          ],
+        },
+        {
+          title:'Projects',
+          explore:'',
+          menu_items:[
+            {
+              img:'key.jpg',
+              name:'Smart key'
+            },
+            {
+              img:'bicycle.jpg',
+              name:'Smart BIKE'
+            },
+          ],
+        },
+        {
+          title:'Followed Projects',
+          explore:'',
+          menu_items:[
+            {
+              img:'user.png',
+              name:'Linux'
+            },
+            {
+              img:'aircooler.png',
+              name:'Air cooler'
+            },
+          ],
+        },
+      ]
+    }}
+  }
 </script>
 
 <style lang="less" scoped>
   .menu{
     box-shadow: none;
     border: 0;
-    padding: 15px 20px 15px 0px;
-
+    background: none;
+    padding: 0;
+    margin: 0;
   }
-  .btn{
+  .sidebar{
     width: 100%;
-    margin-bottom: 10px;
+  }
+  .divider{
+    border:0;
+    padding: 5px 0px;
+  }
+  .divider:after{
+    background: none;
+    color: #4E4E4E;
+    font-weight: 600;
+    padding: 0;
+    text-transform: uppercase;
+  }
+  .menu-item{
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  .divider a{
+    position: absolute;
+    right: 0;
+    top: -4px;
+    font-size: 12px;
+    color: #95989A;
+  }
+  .divider a:hover{
+    color: #2196F3;
+    text-decoration: none;
   }
 </style>
