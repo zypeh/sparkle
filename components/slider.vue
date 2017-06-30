@@ -4,7 +4,7 @@
     <div v-swiper:mySwiper="swiperOption">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="slide in slides">
-          <a class="card" href="#modal-1">
+          <a class="card" :href="`#${slide.name}`">
             <div class="card-image">
               <img :src="slide.img" class="img-responsive"/>
             </div>
@@ -44,15 +44,24 @@
       slides:[
         {
           title:'Smart Bike',
+          name:'smartbike',
           img:'bicycle.jpg',
           slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
           follower:'1122'
         },
         {
           title:'Smart Key',
+          name:'smartkey',
           img:'key.jpg',
           slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
           follower:'11220'
+        },
+        {
+          title:'Smart Box',
+          name:'smartbox',
+          img:'key.jpg',
+          slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
+          follower:'11230'
         },
       ]
     }
