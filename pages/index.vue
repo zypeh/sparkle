@@ -6,17 +6,21 @@
         <h1 class="blue-text">Re-invent</h1>
       </div>
       <slider/>
-      <div class="container" style="margin-top:20px;">
-        <div class="columns">
-          <div class="column col-3" style="padding-left:0px;">
-            <sidebar/>
-          </div>
-          <div class="column col-9" style="padding-left:0px;">
-            <newsfeed/>
-          </div>
-        </div>
-      </div>
+
     </div>
+		<div class="main container" style="margin-top:20px;">
+			<div class="columns">
+
+					<div class="column col-3" >
+						<sidebar/>
+					</div>
+
+				<div class="column col-9 col-md-12">
+					<newsfeed/>
+				</div>
+			</div>
+		</div>
+
   </section>
 </template>
 <script>
@@ -31,6 +35,7 @@
       Slider,
       Modal
     },
+
     layout: 'default',
   }
 </script>
@@ -64,4 +69,14 @@
   .card{
     border-color: rgba(0,0,0,.0975) !important;
   }
+
+	@media screen and (max-width: 980px) {
+		.main.container{
+			width: auto;
+		}
+		.col-3{
+			padding: 0px;
+		}
+  }
+
 </style>

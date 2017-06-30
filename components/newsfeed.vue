@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="card-image">
+      <div class="card-image" v-if="post.img !== ''">
         <img :src="post.img" class="img-responsive" />
       </div>
       <div class="card-body">
@@ -26,52 +26,40 @@
       </div>
       <div class="divider"></div>
       <div class="card-footer grey" id="action-card">
-        <a class="action like action">
+        <a class="action like">
           <span class="icon-heart"></span>
           <span>Like</span>
         </a>
-        <a class="action comment action">
+        <a class="action comment">
           <span class="icon-chat-3"></span>
           <span>Comment</span>
         </a>
-        <a class="action share action">
+        <a class="action share">
           <span class="icon-share-square-o"></span>
           <span>Share</span>
         </a>
-        <div class="comment-area">
+        <div class="like-area" v-if="post.like > 0">
           <span v-if="post.like == 1">{{ post.like }} like</span>
           <span v-else>{{ post.like }} likes</span>
         </div>
-        <div class="tile">
+        <div class="tile" v-for="comment in post.comments">
           <div class="tile-icon">
             <figure class="avatar avatar-sm">
-              <img src="user.png" />
+              <img :src="comment.img" />
             </figure>
           </div>
           <div class="tile-content">
-            <a href="#" class="tile-title">Linus everland</a>
-            <p class="tile-subtitle">Vivamus feugiat sapien sed dui dictum, eget finibus nunc volutpat. Quisque blandit et est non hendrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin eget posuere erat. Maecenas eleifend suscipit felis, non aliquet turpis ullamcorper efficitur. Nunc in elit feugiat, elementum velit non, fermentum urna. Maecenas aliquet commodo eros eget fringilla.</p>
+            <a href="#" class="tile-title">{{comment.name}}</a>
+            <p class="tile-subtitle">
+							<span class="grey-text" v-if="comment.reply !== ''">Reply {{comment.reply}} : </span>{{comment.comment}}</p>
             <a href="#" class="comment-action action"><span class="icomoon icon-reply" style="top:-2px;"></span> reply</a>
             <a href="#" class="comment-action action"><span class="icon-mail-forward"></span> share</a>
-            <div class="tile">
-              <div class="tile-icon">
-                <figure class="avatar avatar-sm">
-                  <img src="user.png" />
-                </figure>
-              </div>
-              <div class="tile-content">
-                <a href="#" class="tile-title">Linus everland</a>
-                <p class="tile-subtitle">Vivamus feugiat sapien sed dui dictum, eget finibus nunc volutpat. Quisque blandit et est non hendrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin eget posuere erat. Maecenas eleifend suscipit felis, non aliquet turpis ullamcorper efficitur. Nunc in elit feugiat, elementum velit non, fermentum urna. Maecenas aliquet commodo eros eget fringilla.</p>
-                <a href="#" class="comment-action action"><span class="icomoon icon-reply" style="top:-2px;"></span> reply</a>
-                <a href="#" class="comment-action action"><span class="icon-mail-forward"></span> share</a>
-              </div>
-            </div>
           </div>
-        </div>
-        <div class="input-group">
-          <textarea class="form-input" placeholder="Comment here" />
-          <button class="btn btn-primary input-group-btn" style="height:auto">Comment</button>
-        </div>
+				</div>
+				<div class="comment-here">
+					<autosize/>
+					<div class="tips">Press enter to comment</div>
+				</div>
       </div>
     </div>
     <!-- NewsFeed Card End -->
@@ -79,7 +67,11 @@
 </template>
 
 <script>
+	import autosize from '~components/autoresize-textarea'
   export default{
+		components:{
+			autosize
+		},
     data(){return{
       posts:[
         {
@@ -90,6 +82,20 @@
           content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
           time:'8hrs ago',
           like:190,
+					comments:[
+						{
+							img:'user.png',
+							name:'Linus everland',
+							reply:'',
+							comment:'ndrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin'
+						},
+						{
+							img:'user.png',
+							name:'Hellow',
+							reply: 'Linus everland',
+							comment:'Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin'
+						}
+					]
         },
         {
           author:'Linus Xenos',
@@ -113,6 +119,9 @@
 </script>
 
 <style scoped>
+	.grey-text{
+		color: #9e9e9e;
+	}
   .card{
     margin-top: 15px;
   }
@@ -158,6 +167,7 @@
     display: inline-block;
     padding-right: 0.5em;
     cursor: pointer;
+		margin-bottom: 3px;
   }
   .action span{
     font-size: 1em;
@@ -165,7 +175,7 @@
     display: inline-block;
     vertical-align: middle;
   }
-  .comment-area{
+  .like-area{
     margin: 7px 0px;
   }
   .tile-title{
@@ -191,4 +201,7 @@
   .action{
     color: #95989A;
   }
+	.tips{
+		font-size: 10px;
+	}
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <div class="sidebar">
+<section>
+<transition name="move-left">
+  <div class="sidebar" v-if="menushow">
     <ul class="menu" v-for="menu in menus">
       <!-- menu header text -->
       <li class="divider" :data-content="menu.title">
@@ -22,11 +24,21 @@
       </li>
     </ul>
   </div>
+	</transition>
+		<div class="menu-btn" @click="menushow = !menushow">
+			<transition name="flip-horizontal" v-if="menushow">
+			<i class="icon icon-arrow-right" ></i>
+				</transition>
+		</div>
+
+</section>
 </template>
 
 <script>
   export default{
+
     data(){return{
+			menushow:true,
       menus:[
         {
           title:'ORGANIZATION',
@@ -72,6 +84,7 @@
 </script>
 
 <style lang="less" scoped>
+
   .menu{
     box-shadow: none;
     border: 0;
@@ -81,6 +94,9 @@
   }
   .sidebar{
     width: 100%;
+		position: sticky;
+		position: -webkit-sticky;
+		top: 70px;
   }
   .divider{
     border:0;
@@ -107,5 +123,59 @@
   .divider a:hover{
     color: #2196F3;
     text-decoration: none;
+  }
+	.menu-btn{
+		position: fixed;
+		top: 70px;
+		background-color: rgba(255,255,255,1);
+		border: solid 1px rgba(0,0,0,.0975);
+		padding: 10px 5px;
+		z-index: 999;
+		left: 0;
+		display: none;
+	}
+	.move-left-enter-active {
+		animation: moveleft .1s;
+	}
+	.move-left-leave-active {
+		animation: moveleft .1s reverse;
+	}
+	@keyframes moveleft {
+		0% {
+			left: -250px;
+		}
+		100% {
+			left: 0px;
+		}
+	}
+	.fliphorizontal-enter-active {
+		animation: flip-horizontal .1s;
+	}
+	.fliphorizontal-leave-active {
+		animation: flip-horizontal .1s reverse;
+	}
+	@keyframes flip-horizontal {
+		0% {
+			transform: rotate(180deg);
+			visibility:show;
+		}
+		100% {
+			transform: rotate(0deg);
+			visibility:show;
+		}
+	}
+	@media screen and (max-width: 980px) {
+		.sidebar{
+			position: fixed;
+			background-color: white;
+			top: 60px;
+			z-index: 900;
+			width: 250px;
+			padding:10px 10px 10px 30px;
+			height: 100%;
+		}
+		.menu-btn{
+			display: inline-block;
+		}
   }
 </style>
