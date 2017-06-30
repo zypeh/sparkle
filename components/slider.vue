@@ -6,7 +6,7 @@
         <div class="swiper-slide" v-for="slide in slides">
           <a class="card" :href="`#${slide.name}`">
             <div class="card-image">
-              <img :src="`${slide.img}`" class="img-responsive"/>
+              <img :src="slide.img" class="img-responsive"/>
             </div>
             <div class="card-body text-ellipsis">
               <h6>{{ slide.title }}</h6>
@@ -96,34 +96,39 @@
       align-items: center;
     }
   }
-	.swiper-button-prev{
-		margin-left: -50px !important;
-	}
-	.swiper-button-next{
-		margin-right: -50px !important;
-	}
-	.swiper-button-next.swiper-button-grey, .swiper-button-prev.swiper-button-grey{
-		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M27 22L5 44l-2.1-2.1L22.8 22 2.9 2.1 5 0l22 22z' fill='%232D2D2D'/%3E%3C/svg%3E");
-		width: 18px;
+  .swiper-button-prev{
+    margin-left: -50px !important;
+  }
+  .swiper-button-next{
+    margin-right: -50px !important;
+  }
+  .swiper-button-next.swiper-button-grey, .swiper-button-prev.swiper-button-grey{
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M27 22L5 44l-2.1-2.1L22.8 22 2.9 2.1 5 0l22 22z' fill='%232D2D2D'/%3E%3C/svg%3E");
+    width: 18px;
     height: 27px;
-    margin-top: -13.5px; /* -height/2 */
+    margin-top: -13.5px; /* -height除2 */
     -moz-background-size: 27px 44px;
     -webkit-background-size: 27px 44px;
     background-size: 18px 27px;
-	}
-	.swiper-button-prev.swiper-button-grey{
-		transform: rotate(180deg);
-	}
-	.card-image img{
-		height: 200px;
-	}
-	.card-footer{
-		font-size: 1.1rem;
-	}
+  }
+  .swiper-button-prev.swiper-button-grey{
+    transform: rotate(180deg);
+  }
+  .card-image img{
+    height: 200px;
+  }
+  .card-footer{
+    font-size: 1.1rem;
+  }
   .card{
     color:inherit!important;
   }
   .card:hover{
     text-decoration: none;
+  }
+  @media screen and (max-width: 960px) {
+    .swiper-button-next,.swiper-button-prev{
+      display: none;
+    }
   }
 </style>

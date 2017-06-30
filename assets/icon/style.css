@@ -1,23 +1,33 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?yzgpi5');
-  src:  url('fonts/icomoon.eot?yzgpi5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?yzgpi5') format('truetype'),
-    url('fonts/icomoon.woff?yzgpi5') format('woff'),
-    url('fonts/icomoon.svg?yzgpi5#icomoon') format('svg');
+  font-family: 'icon';
+  src:  url('fonts/icon.eot?tx7qeq');
+  src:  url('fonts/icon.eot?tx7qeq#iefix') format('embedded-opentype'),
+    url('fonts/icon.ttf?tx7qeq') format('truetype'),
+    url('fonts/icon.woff?tx7qeq') format('woff'),
+    url('fonts/icon.svg?tx7qeq#icon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: 'icon' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -27,21 +37,33 @@
 .icon-reply:before {
   content: "\e15e";
 }
-.icon-comment:before {
+.icon-chat-3:before {
   content: "\e900";
 }
-.icon-map:before {
+.icon-mapmarker:before {
   content: "\e901";
+}
+.icon-navigate_next:before {
+  content: "\e409";
+}
+.icon-exit_to_app:before {
+  content: "\e879";
+}
+.icon-settings:before {
+  content: "\e8b8";
 }
 .icon-search:before {
   content: "\f002";
 }
-.icon-like:before {
+.icon-heart:before {
   content: "\f004";
 }
-.icon-share-square:before {
+.icon-share-square-o:before {
   content: "\f045";
 }
-.icon-share-icon:before {
+.icon-mail-forward:before {
+  content: "\f064";
+}
+.icon-share:before {
   content: "\f064";
 }
