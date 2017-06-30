@@ -5,6 +5,7 @@
   "author": "zypeh <zypeh.geek@gmail.com>",
   "private": true,
   "dependencies": {
+    "autosize": "^3.0.21",
     "nuxt": "latest",
     "vue-awesome-swiper": "^2.4.2"
   },
