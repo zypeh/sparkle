@@ -95,6 +95,15 @@
           author:'Linus Xenos',
           org:'Google',
           role:'Founder of Tex Inc',
+          img:'',
+          content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
+          time:'8hrs ago'
+        },
+        {
+          author:'Linus Xenos',
+          org:'Google',
+          role:'Founder of Tex Inc',
+          img:'',
           content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
           time:'8hrs ago'
         },
