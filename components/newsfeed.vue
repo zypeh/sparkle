@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="card-image">
+      <div class="card-image" v-if="post.img !== ''">
         <img :src="post.img" class="img-responsive" />
       </div>
       <div class="card-body">
@@ -42,30 +42,18 @@
           <span v-if="post.like == 1">{{ post.like }} like</span>
           <span v-else>{{ post.like }} likes</span>
         </div>
-        <div class="tile">
+        <div class="tile" v-for="comment in post.comments">
           <div class="tile-icon">
             <figure class="avatar avatar-sm">
-              <img src="user.png" />
+              <img :src="comment.img" />
             </figure>
           </div>
           <div class="tile-content">
-            <a href="#" class="tile-title">Linus everland</a>
-            <p class="tile-subtitle">Vivamus feugiat sapien sed dui dictum, eget finibus nunc volutpat. Quisque blandit et est non hendrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin eget posuere erat. Maecenas eleifend suscipit felis, non aliquet turpis ullamcorper efficitur. Nunc in elit feugiat, elementum velit non, fermentum urna. Maecenas aliquet commodo eros eget fringilla.</p>
+            <a href="#" class="tile-title">{{comment.name}}</a>
+            <p class="tile-subtitle">
+							<span class="grey-text" v-if="comment.reply !== ''">Reply {{comment.reply}} : </span>{{comment.comment}}</p>
             <a href="#" class="comment-action action"><span class="icomoon icon-reply" style="top:-2px;"></span> reply</a>
             <a href="#" class="comment-action action"><span class="icon-mail-forward"></span> share</a>
-            <div class="tile">
-              <div class="tile-icon">
-                <figure class="avatar avatar-sm">
-                  <img src="user.png" />
-                </figure>
-              </div>
-              <div class="tile-content">
-                <a href="#" class="tile-title">Linus everland</a>
-                <p class="tile-subtitle">Vivamus feugiat sapien sed dui dictum, eget finibus nunc volutpat. Quisque blandit et est non hendrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin eget posuere erat. Maecenas eleifend suscipit felis, non aliquet turpis ullamcorper efficitur. Nunc in elit feugiat, elementum velit non, fermentum urna. Maecenas aliquet commodo eros eget fringilla.</p>
-                <a href="#" class="comment-action action"><span class="icomoon icon-reply" style="top:-2px;"></span> reply</a>
-                <a href="#" class="comment-action action"><span class="icon-mail-forward"></span> share</a>
-              </div>
-            </div>
           </div>
         </div>
         <div class="input-group">
@@ -90,11 +78,26 @@
           content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
           time:'8hrs ago',
           like:190,
+					comments:[
+						{
+							img:'user.png',
+							name:'Linus everland',
+							reply:'',
+							comment:'ndrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin'
+						},
+						{
+							img:'user.png',
+							name:'Hellow',
+							reply: 'Linus everland',
+							comment:'Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin'
+						}
+					]
         },
         {
           author:'Linus Xenos',
           org:'Google',
           role:'Founder of Tex Inc',
+					img:'',
           content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
           time:'8hrs ago'
         },
@@ -104,6 +107,9 @@
 </script>
 
 <style scoped>
+	.grey-text{
+		color: #9e9e9e;
+	}
   .card{
     margin-top: 15px;
   }

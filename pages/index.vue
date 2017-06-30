@@ -6,12 +6,12 @@
         <h1 class="blue-text">Re-invent</h1>
       </div>
       <slider/>
-      <div class="container" style="margin-top:20px;">
+      <div class="container" style="margin-top:30px;">
         <div class="columns">
           <div class="column col-3" style="padding-left:0px;">
             <sidebar/>
           </div>
-          <div class="column col-9" style="padding-left:0px;">
+          <div class="column col-9" style="padding-right:20px;padding-left:20px;">
             <newsfeed/>
           </div>
         </div>

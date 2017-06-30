@@ -81,6 +81,9 @@
   }
   .sidebar{
     width: 100%;
+		position: -webkit-sticky;
+  	position: sticky;
+		top:70px;
   }
   .divider{
     border:0;

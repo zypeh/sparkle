@@ -93,7 +93,7 @@
       padding: 10px 10px;
     }
     .navbar-brand{
-      width: 122px;
+      width: 125px;
     }
   }
   @media screen and (max-width: 601px){
