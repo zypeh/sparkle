@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- NewsFeed Card Start -->
-    <div class="card" v-for="post in posts" :index="index">
+    <div class="card" v-for="(post,index) in posts" :index="index">
       <div class="card-header">
         <figure class="avatar avatar-sm">
           <img src="~static/user.png" />
@@ -26,7 +26,9 @@
       </div>
       <div class="divider"></div>
       <div class="card-footer grey" id="action-card">
-        <a class="action like">
+        <a class="action like"
+					 @click="posts[index].isLiked = !posts[index].isLiked"
+					 :class="{'love-active': posts[index].isLiked}">
           <span class="icon-heart"></span>
           <span>Like</span>
         </a>
@@ -42,7 +44,7 @@
           <span v-if="post.like == 1">{{ post.like }} like</span>
           <span v-else>{{ post.like }} likes</span>
         </div>
-        <div class="tile" v-for="(comment,index) in post.comments">
+        <div class="tile" v-for="comment in post.comments">
           <div class="tile-icon">
             <figure class="avatar avatar-sm">
               <img :src="comment.img" />
@@ -58,9 +60,9 @@
 										>Reply {{comment.reply}} : </span>{{comment.comment}}</p>
             <a href="javascript:void(0)"
 							 class="comment-action reply action"
-							 @click="post[0].replyuser = comment.name">
+							 @click="posts[index].replyuser = comment.name">
 							<span class="icomoon icon-reply" style="top:-2px;"></span>
-							reply {{post[0].replyuser}}
+							reply
 						</a>
             <a href="#" class="comment-action share action">
 							<span class="icon-mail-forward"></span>
@@ -70,8 +72,8 @@
 				</div>
 				<div class="comment-here">
 					<span class="grey-text"
-								v-if="replyuser !== ''"
-								>Reply {{post[index]}} : </span>
+								v-if="posts[index].replyuser !== ''"
+								>Reply {{posts[index].replyuser}} : </span>
 					<autosize/>
 					<div class="tips">Press enter to comment</div>
 				</div>
@@ -99,6 +101,33 @@
           content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
           time:'8hrs ago',
           like:190,
+					isLiked:true,
+					comments:[
+						{
+							img:'user.png',
+							name:'Linus everland',
+							reply:'',
+							comment:'',
+							replyuser:'',
+						},
+						{
+							img:'user.png',
+							name:'Hellow',
+							reply: 'Linus everland',
+							comment:'Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin'
+						}
+					]
+        },
+        {
+					postId:'0',
+					replyuser:'',
+          author:'Linus Xenos',
+          org:'Google',
+          role:'Founder of Tex Inc',
+          img:'',
+          content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
+          time:'8hrs ago',
+					isLiked:true,
 					comments:[
 						{
 							img:'user.png',
@@ -116,14 +145,9 @@
 					]
         },
         {
-          author:'Linus Xenos',
-          org:'Google',
-          role:'Founder of Tex Inc',
-          img:'',
-          content:`We believe online ads should be better. Here's how we'll be suporting the Better Ads Standards → <a href="#"> https://goo.gl/MRJkiZ`,
-          time:'8hrs ago'
-        },
-        {
+					postId:'0',
+					isLiked:true,
+					replyuser:'',
           author:'Linus Xenos',
           org:'Google',
           role:'Founder of Tex Inc',
@@ -132,7 +156,7 @@
           time:'8hrs ago'
         },
       ]
-    }}
+    }},
   }
 </script>
 
@@ -187,6 +211,7 @@
     cursor: pointer;
 		margin-bottom: 3px;
 		color: #95989A;
+		-webkit-user-select:none;
   }
   .action span{
     font-size: 1em;
@@ -216,9 +241,6 @@
   .action:hover{
     text-decoration: none;
   }
-	.action.like:hover{
-		color: #f44336;
-	}
 	.action.comment:hover,.comment-action.reply:hover{
 		color: #2196F3;
 	}
@@ -227,5 +249,20 @@
 	}
 	.tips{
 		font-size: 10px;
+	}
+	.love-active{
+		color: #f44336;
+		animation: zoom 200ms ease-out alternate;
+	}
+	@keyframes zoom{
+		0%{
+			transform: scale(1);
+		}
+		50%{
+			transform: scale(1.5);
+		}
+		100%{
+			transform: scale(1);
+		}
 	}
 </style>

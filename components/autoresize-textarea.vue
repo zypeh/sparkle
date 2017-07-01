@@ -1,14 +1,14 @@
 <template>
-	<textarea placeholder="comment here">{{ value }}</textarea>
+	<textarea placeholder="comment here" :value="input" @keyup.enter="">{{ value }}</textarea>
 </template>
 
 <script>
 import autosize from 'autosize'
 
 export default {
-    name: 'autoresize-textarea',
-    props: ['handle-change', 'value'],
-    mounted() { autosize(this.$el) }
+	name: 'autoresize-textarea',
+	props: ['handle-change', 'value'],
+	mounted() { autosize(this.$el) },
 }
 </script>
 <style>

@@ -10,6 +10,7 @@
         </div>
         <div class="col-4 column">
           <h3 class="text-strong">Smart Bike</h3>
+					<p class="grey-text">Enjoy refreshing cool air in hot summer months and much needed humidity</p>
         </div>
       </div>
     </div>
@@ -21,10 +22,12 @@
   }
 </script>
 
-<style>
+<style scoped>
+	section{
+		padding-top: 20px;
+	}
   .container{
 		width: 980px;
-		margin-top: 20px;
 	}
   .p-img-container{
     width: 100%;
@@ -40,4 +43,10 @@
     background-size: cover;
     background-position: center;
   }
+	h3{
+		margin: 0;
+	}
+	p{
+		line-height: 1.3em;
+	}
 </style>
