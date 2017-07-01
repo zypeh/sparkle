@@ -25,10 +25,8 @@
     </ul>
   </div>
 	</transition>
-		<div class="menu-btn" @click="menushow = !menushow">
-			<transition name="flip-horizontal" v-if="menushow">
-			<i class="icon icon-arrow-right" ></i>
-				</transition>
+		<div class="menu-btn" @click="menushow = !menushow" >
+				<i class="icon icon-arrow-right" :class="{'menushow': menushow}"></i>
 		</div>
 
 </section>
@@ -36,8 +34,8 @@
 
 <script>
   export default{
-
     data(){return{
+			flipin:true,
 			menushow:true,
       menus:[
         {
@@ -134,6 +132,9 @@
 		left: 0;
 		display: none;
 	}
+	.menu-btn i{
+		transition: transform 200ms;
+	}
 	.move-left-enter-active {
 		animation: moveleft .1s;
 	}
@@ -148,23 +149,21 @@
 			left: 0px;
 		}
 	}
-	.fliphorizontal-enter-active {
-		animation: flip-horizontal .1s;
-	}
-	.fliphorizontal-leave-active {
-		animation: flip-horizontal .1s reverse;
-	}
 	@keyframes flip-horizontal {
 		0% {
-			transform: rotate(180deg);
-			visibility:show;
+			transform: scale(100);
 		}
 		100% {
-			transform: rotate(0deg);
-			visibility:show;
+			transform: scale(0);
 		}
 	}
-	@media screen and (max-width: 980px) {
+	.flip-transition{
+  	display: inline-block;
+	}
+	.menushow{
+		transform: rotate(.180deg) !important;
+	}
+	@media screen and (max-width: 841px) {
 		.sidebar{
 			position: fixed;
 			background-color: white;

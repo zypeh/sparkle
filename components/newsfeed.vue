@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- NewsFeed Card Start -->
-    <div class="card" v-for="post in posts">
+    <div class="card" v-for="post in posts" :index="index">
       <div class="card-header">
         <figure class="avatar avatar-sm">
           <img src="~static/user.png" />
@@ -42,21 +42,36 @@
           <span v-if="post.like == 1">{{ post.like }} like</span>
           <span v-else>{{ post.like }} likes</span>
         </div>
-        <div class="tile" v-for="comment in post.comments">
+        <div class="tile" v-for="(comment,index) in post.comments">
           <div class="tile-icon">
             <figure class="avatar avatar-sm">
               <img :src="comment.img" />
             </figure>
           </div>
           <div class="tile-content">
-            <a href="#" class="tile-title">{{comment.name}}</a>
+            <a href="#" class="tile-title">
+							{{comment.name}}
+						</a>
             <p class="tile-subtitle">
-							<span class="grey-text" v-if="comment.reply !== ''">Reply {{comment.reply}} : </span>{{comment.comment}}</p>
-            <a href="#" class="comment-action action"><span class="icomoon icon-reply" style="top:-2px;"></span> reply</a>
-            <a href="#" class="comment-action action"><span class="icon-mail-forward"></span> share</a>
+							<span class="grey-text"
+										v-if="comment.reply !== ''"
+										>Reply {{comment.reply}} : </span>{{comment.comment}}</p>
+            <a href="javascript:void(0)"
+							 class="comment-action reply action"
+							 @click="post[0].replyuser = comment.name">
+							<span class="icomoon icon-reply" style="top:-2px;"></span>
+							reply {{post[0].replyuser}}
+						</a>
+            <a href="#" class="comment-action share action">
+							<span class="icon-mail-forward"></span>
+							share
+						</a>
           </div>
 				</div>
 				<div class="comment-here">
+					<span class="grey-text"
+								v-if="replyuser !== ''"
+								>Reply {{post[index]}} : </span>
 					<autosize/>
 					<div class="tips">Press enter to comment</div>
 				</div>
@@ -75,6 +90,8 @@
     data(){return{
       posts:[
         {
+					postId:'0',
+					replyuser:'',
           author:'Linus Xenos',
           org:'Google',
           role:'Founder of Tex Inc',
@@ -87,7 +104,8 @@
 							img:'user.png',
 							name:'Linus everland',
 							reply:'',
-							comment:'ndrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin'
+							comment:'ndrerit. Etiam dictum augue in sagittis volutpat. Integer gravida tristique quam, ut consequat lorem rhoncus in. Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin',
+							replyuser:'',
 						},
 						{
 							img:'user.png',
@@ -168,6 +186,7 @@
     padding-right: 0.5em;
     cursor: pointer;
 		margin-bottom: 3px;
+		color: #95989A;
   }
   .action span{
     font-size: 1em;
@@ -196,11 +215,16 @@
   }
   .action:hover{
     text-decoration: none;
-    color: #2196F3;
   }
-  .action{
-    color: #95989A;
-  }
+	.action.like:hover{
+		color: #f44336;
+	}
+	.action.comment:hover,.comment-action.reply:hover{
+		color: #2196F3;
+	}
+	.action.share:hover,.comment-action.share:hover{
+		color: #616161;
+	}
 	.tips{
 		font-size: 10px;
 	}

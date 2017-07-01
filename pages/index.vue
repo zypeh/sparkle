@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container">
+    <div class="out container">
       <div class="slogan">
         <h2>The world need you to</h2>
         <h1 class="blue-text">Re-invent</h1>
@@ -53,8 +53,11 @@
   h2{
     font-size: 5rem;
   }
-  .container{
-    width: 980px;
+	.out.container{
+		width: 980px;
+	}
+  .main.container{
+    max-width: 980px;
   }
   .newsfeed{
     width: calc(100% - 250px);
@@ -69,11 +72,7 @@
   .card{
     border-color: rgba(0,0,0,.0975) !important;
   }
-
-	@media screen and (max-width: 980px) {
-		.main.container{
-			width: auto;
-		}
+	@media screen and (max-width: 840px) {
 		.col-3{
 			padding: 0px;
 		}
