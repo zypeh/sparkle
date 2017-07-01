@@ -30,6 +30,7 @@ module.exports = {
     { src: '~assets/spectre/spectre.less', lang: 'less' },
     { src: '~assets/spectre/spectre-exp.less', lang: 'less' },
     { src: '~assets/spectre/spectre-icons.less', lang: 'less' },
+    { src: '~assets/tex/style.less', lang: 'less' },
     '~assets/icon/style.css',
     'swiper/dist/css/swiper.css'
   ],
