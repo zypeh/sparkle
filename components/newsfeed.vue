@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- NewsFeed Card Start -->
-    <div class="card" v-for="(post,index) in posts" :index="index">
+    <div class="card" v-for="(post,index) in posts">
       <div class="card-header">
         <figure class="avatar avatar-sm">
           <img src="~static/user.png" />
@@ -74,7 +74,6 @@
 					<span class="grey-text"
 								v-if="posts[index].replyuser !== ''"
 								>Reply {{posts[index].replyuser}} : </span>
-					<autosize/>
 					<div class="tips">Press enter to comment</div>
 				</div>
       </div>
@@ -84,11 +83,7 @@
 </template>
 
 <script>
-	import autosize from '~components/autoresize-textarea'
   export default{
-		components:{
-			autosize
-		},
     data(){return{
       posts:[
         {

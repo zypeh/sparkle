@@ -8,12 +8,12 @@
             <div class="card-image">
               <img :src="slide.img" class="img-responsive"/>
             </div>
-            <div class="card-body text-ellipsis">
+            <div class="card-body">
               <h6>{{ slide.title }}</h6>
-              {{ slide.slogan }}
+              <text>{{ slide.slogan }}</text>
             </div>
             <div class="card-footer">
-              {{ slide.follower }} follower
+              <text>{{ slide.follower }} follower</text>
             </div>
           </a>
         </div>
@@ -22,6 +22,7 @@
   <div class="swiper-button-prev swiper-button-grey" slot="button-prev"></div>
   <div class="swiper-button-next swiper-button-grey" slot="button-next"></div>
   </div>
+  
 </template>
 
 <script>
@@ -41,32 +42,11 @@
 					console.log('onSlideChangeEnd', swiper.realIndex)
 				}
 			},
-      slides:[
-        {
-          title:'Smart Bike',
-          name:'smartbike',
-          img:'bicycle.jpg',
-          slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
-          follower:'1122'
-        },
-        {
-          title:'Smart Key',
-          name:'smartkey',
-          img:'key.jpg',
-          slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
-          follower:'11220'
-        },
-        {
-          title:'Smart Box',
-          name:'smartbox',
-          img:'key.jpg',
-          slogan:'Enjoy refreshing cool air in hot summer months and much needed humidity',
-          follower:'11230'
-        },
-      ]
     }
   },
-
+  props:{
+    slides  : { default: null },
+  },
   mounted () {
     console.log('app init')
     setTimeout(() => {
@@ -119,6 +99,7 @@
   }
   .card-footer{
     font-size: 1.1rem;
+    padding-top:0.5rem;
   }
   .card{
     color:inherit!important;

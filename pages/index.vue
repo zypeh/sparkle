@@ -5,18 +5,15 @@
         <h2>The world need you to</h2>
         <h1 class="blue-text">Re-invent</h1>
       </div>
-      <slider/>
-
+      <slider :slides="data.slides"></slider>
     </div>
 		<div class="main container" style="margin-top:20px;">
 			<div class="columns">
-
 					<div class="column col-3" >
-						<sidebar/>
+						<sidebar :menus="data.menus"></sidebar>
 					</div>
-
 				<div class="column col-9 col-md-12">
-					<newsfeed/>
+					<card :cards="data.cards"></card>
 				</div>
 			</div>
 		</div>
@@ -25,17 +22,18 @@
 </template>
 <script>
   import Sidebar from '~components/sidebar.vue';
-  import Newsfeed from '~components/newsfeed.vue';
   import Slider from '~components/slider.vue';
-  import Modal from '~components/modal.vue';
+  import data from '../data/index';
+  import Card from '~components/card.vue';
   export default {
     components: {
       Sidebar,
-      Newsfeed,
+      Card,
       Slider,
-      Modal
     },
-
+    data(){
+      return{ data: data }
+    },
     layout: 'default',
   }
 </script>
@@ -62,12 +60,6 @@
   .newsfeed{
     width: calc(100% - 250px);
     padding: 5px 0px;
-  }
-  .black{
-    color: #2B2B2B;
-  }
-  .grey{
-    color: #95989A;
   }
   .card{
     border-color: rgba(0,0,0,.0975) !important;

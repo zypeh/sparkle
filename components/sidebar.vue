@@ -5,7 +5,7 @@
     <ul class="menu" v-for="menu in menus">
       <!-- menu header text -->
       <li class="divider" :data-content="menu.title">
-        <a :href="menu.explore" v-if="menu.explore !== ''">
+        <a :href="menu.explore" v-if="menu.explore">
           explore<span class="icon-navigate_next icomoon" style="top:2px;"></span>
         </a>
       </li>
@@ -37,47 +37,11 @@
     data(){return{
 			flipin:true,
 			menushow:true,
-      menus:[
-        {
-          title:'ORGANIZATION',
-          explore:'#zz',
-          menu_items:[
-            {
-              img:'logo.svg',
-              name:'Steve Rogers'
-            }
-          ],
-        },
-        {
-          title:'Projects',
-          explore:'',
-          menu_items:[
-            {
-              img:'key.jpg',
-              name:'Smart key'
-            },
-            {
-              img:'bicycle.jpg',
-              name:'Smart BIKE'
-            },
-          ],
-        },
-        {
-          title:'Followed Projects',
-          explore:'',
-          menu_items:[
-            {
-              img:'user.png',
-              name:'Linux'
-            },
-            {
-              img:'aircooler.png',
-              name:'Air cooler'
-            },
-          ],
-        },
-      ]
-    }}
+    }},
+    props:
+    {
+      menus  : { default: null },
+    },
   }
 </script>
 
