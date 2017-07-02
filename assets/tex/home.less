@@ -1,0 +1,33 @@
+
+/* 放slogan和slider的container */
+.out.container{
+  /*
+    960px + container的padding;10px{spectre} = 980px
+    让slider保持在960px的容器里工作，使到每个card保持最佳的宽度
+  */
+  width: 980px;
+  .slogan{
+    /* 增加上下的padding[美观] */
+    padding: 40px 0px;
+
+    h1,h2{
+      /* 修改默认的margin[美观] */
+      margin: 0px;
+    }
+    h2{
+      font-size: 5rem;
+    }
+    h1{
+      font-size: 6rem;
+    }
+  }
+}
+
+/* 放newsfeed和sidebar的container */
+.main.container{
+  /* 与.out.contianer隔离 */
+  margin-top: 20px;
+
+  /* container默认padding:10px{spectrecss} */
+  max-width: 980px;
+}

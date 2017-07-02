@@ -3,7 +3,7 @@
     <!-- NewsFeed Card Start -->
     <div class="card" v-for="(card,index) in cards"> 
 
-    <!-- Header [show if header exist] -->
+      <!-- Header -->
       <div class="card-header" v-if="card.header">
         <figure class="avatar avatar-sl">
           <img :src="card.header.author_img" />
@@ -20,106 +20,144 @@
         </div>
       </div>
 
-      <!-- Image [show if img exist] -->
+      <!-- Image -->
       <div class="card-image" v-if="card.img">
         <img :src="card.img" class="img-responsive" />
       </div>
 
-      <!-- Content [show if header exist] -->
+      <!-- Content -->
       <div class="card-body">
         {{ card.content }}
         <div class="time">
             {{ card.time }}
         </div>
       </div>
+
       <div class="divider"></div>
+
+      <!-- Card action -->
       <div class="card-footer grey" id="action-card">
+
+        <!-- Like -->
         <a class="action like"
           @click="cards[index].isLiked = !cards[index].isLiked"
           :class="{'love-active': cards[index].isLiked}">
           <span class="icon-heart"></span>
           <span>Like</span>
         </a>
+
+        <!-- Comment -->
         <a class="action comment">
           <span class="icon-chat-3"></span>
           <span>Comment</span>
         </a>
+
+        <!-- Share -->
         <a class="action share">
           <span class="icon-share-square-o"></span>
           <span>Share</span>
         </a>
-        <div class="action" v-if="card.like > 0" style="display:block;padding-bottom:3px;">
-          <span v-if="card.like == 1">{{ card.like }} like</span>
-          <span v-else>{{ card.like }} likes</span>
+
+        <!-- like count -->
+        <div class="action like-count" v-if="card.like > 0">
+          <span v-text="Cardlike(card.like)"></span>
         </div>
+
+        <!-- UserComment Area -->
         <div class="tile" v-for="comment in card.comments">
+
+          <!-- User Photo -->
           <div class="tile-icon">
             <figure class="avatar avatar-sl">
               <img :src="comment.img" />
             </figure>
           </div>
+
           <div class="tile-content">
+
+            <!-- Username -->
             <a href="#" class="tile-title">
               {{comment.name}}
             </a>
+
+            <!-- Comment Text -->
             <p class="tile-subtitle">
-              <span class="grey-text"
-                v-if="comment.reply !== ''">
-                Reply {{comment.reply}} : </span>
-                {{comment.comment}}</p>
+              <span class="grey-text" v-text="ShowReply(comment.reply)"></span>
+              {{comment.comment}}
+            </p>
+
+            <!-- Reply User Comment -->
             <a href="javascript:void(0)"
               class="comment-action action reply"
               @click="cards[index].replyuser = comment.name">
-              <span class="icomoon icon-reply" style="top:-2px;"></span>
+              <span class="icomoon icon-reply"></span>
               reply
             </a>
+
+            <!-- Share User Comment -->
             <a href="#" class="comment-action action share">
               <span class="icon-mail-forward"></span>
               share
             </a>
           </div>
         </div>
+
+        <!-- Comment TextBox -->
         <div class="comment-here">
-          <span class="grey-text"
-            v-if="cards[index].replyuser !== ''"
-            >Reply {{cards[index].replyuser}} : </span>
-          <autosize/>
+          <span v-text="ShowReply(cards[index].replyuser)"></span>
+          <autosize :placeholder="'Comment here...'"></autosize>
           <div class="tips">Press enter to comment</div>
         </div>
       </div>
       </div>
     </div>
     <!-- NewsFeed Card End -->
-  </section>
+  </section>  
 </template>
 
 <script>
 import autosize from '~components/autoresize-textarea'
-  export default{
-    components:{
-      autosize,
-    },
-    data(){return{}},
-      props:
-    {
-      cards  : { default: null },
-    },
-  }
+
+export default{
+  components:{
+    autosize,
+  },
+
+  props:{
+    cards  : { default: null },
+  },
+
+  data(){
+    return{}
+  },
+
+  methods: {
+    Cardlike :(count) => count > 1 ? count + ' likes' : count + 'like', 
+    ShowReply :(text) => text ? 'Reply ' + text + ' : ' : null
+  },
+}
 </script>
 
 <style scoped>
-	.love-active{
-		animation: zoom 200ms ease-out alternate;
-	}
-	@keyframes zoom{
-		0%{
-			transform: scale(1);
-		}
-		50%{
-			transform: scale(1.5);
-		}
-		100%{
-			transform: scale(1);
-		}
-	}
+.icon-reply{
+  top:-2px;
+}
+.like-count.action{
+  display:block !important;
+  padding-bottom:4px;
+}
+.love-active{
+  animation: zoom 200ms ease-out alternate;
+}
+@keyframes zoom{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.5);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
 </style>
