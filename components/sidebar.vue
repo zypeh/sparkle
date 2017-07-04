@@ -5,8 +5,8 @@
     <ul class="menu" v-for="menu in menus">
       <!-- menu header text -->
       <li class="divider" :data-content="menu.title">
-        <a :href="menu.explore" v-if="menu.explore">
-          explore<span class="icon-navigate_next icomoon" style="top:2px;"></span>
+        <a :href="menu.subtitleLink" v-if="menu.subtitle">
+          {{ menu.subtitle }}<span class="icon-navigate_next icomoon" style="top:2px;"></span>
         </a>
       </li>
       <!-- menu item -->

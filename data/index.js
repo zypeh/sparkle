@@ -30,8 +30,13 @@ export default{
   ],
   menus:[
     {
-      title:'Organization',
-      explore:true,
+      /*
+        争执超久的title
+        team, organization, startup
+      */
+      title:'Organzation',
+      subtitle:'explore',
+      subtitleLink:'/explore',
       menu_items:[
         {
           img:'logo.svg',
@@ -42,7 +47,8 @@ export default{
     },
     {
       title:'Projects',
-      explore:false,
+      subtitle:'see all',
+      subtitleLink:'/project',
       menu_items:[
         {
           img:'key.jpg',
@@ -58,7 +64,8 @@ export default{
     },
     {
       title:'Followed Projects',
-      explore:false,
+      subtitle:'see all',
+      subtitleLink:'/followedproject',
       menu_items:[
         {
           img:'user.png',
