@@ -120,7 +120,7 @@ import autosize from '~components/autoresize-textarea'
 
 export default{
   components:{
-    autosize,zoom
+    autosize
   },
 
   props:{
