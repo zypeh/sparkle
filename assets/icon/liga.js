@@ -26,11 +26,16 @@
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
             'reply': '&#xe15e;',
+            'add': '&#xe145;',
             'chevron_right': '&#xe409;',
             'navigate_next': '&#xe409;',
+            'content_copy': '&#xe14d;',
+            'date_range': '&#xe916;',
             'exit_to_app': '&#xe879;',
+            'explore': '&#xe87a;',
+            'mail_outline': '&#xe0e1;',
+            'notifications': '&#xe7f4;',
             'settings': '&#xe8b8;',
-            'share': '&#xf045;',
           '0': 0
         };
         delete icons['0'];
