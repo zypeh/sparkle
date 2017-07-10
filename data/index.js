@@ -2,7 +2,7 @@ export default{
   slogan:{
     code:`
       <h2>The world need you to</h2>
-      <h1 class="blue-text">Re-invent</h1>
+      <h1>Re-invent</h1>
     `,
   },
   slides:[

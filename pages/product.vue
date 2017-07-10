@@ -2,23 +2,27 @@
   <section>
     <div class="container">
       <div class="columns">
-        <div class="col-8 column">
-          <div class="p-img-container">
-            <div class="product-img" style="background-image:url('bicycle.jpg')">
-          </div>
-          </div>
+        <div class="col-7 column">
+          
         </div>
-        <div class="col-4 column">
-          <h3 class="text-strong">Smart Bike</h3>
-					<p class="grey-text">Enjoy refreshing cool air in hot summer months and much needed humidity</p>
+        <div class="col-5 column">
+          <gallery :slides="data.slides"></gallery>
         </div>
       </div>
     </div>
   </section>
 </template>
 <script>
+import gallery    from '~components/gallery.vue';
+import data    from '../data/index';
   export default {
-    layout: 'default',
+    components: {
+    gallery,
+  },
+  data(){
+    return{ data: data }
+  },
+    layout: 'normal',
   }
 </script>
 

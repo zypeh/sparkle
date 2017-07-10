@@ -1,15 +1,41 @@
 // Menus
 .menu {
-  background: @bg-color-light;
+  background: white;
   border-radius: @border-radius;
   list-style: none;
   margin: 0;
   min-width: @control-min-width;
   padding: 1rem;
-  .shadow-variant(.1rem);
-  transform: translateY(.5rem);
+  border:@tx-border-color;
+  transform: translateY(2rem);
   z-index: @zindex-1;
 
+
+  &:before{
+    content:"";
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent white transparent;
+    z-index:9999;
+  }
+  &:after {
+    content:"";   
+    position: absolute;
+    right: 4px;
+    top: -11.5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 11px 11px 11px;
+    border-color: transparent transparent #e5e5e5 transparent;
+    z-index:9998;
+  }
+  
   .menu-item {
     margin-top: 0;
     padding: 0 .8rem;
@@ -33,6 +59,7 @@
         color: @primary-color;
       }
     }
+    
   }
 
   .menu-badge {

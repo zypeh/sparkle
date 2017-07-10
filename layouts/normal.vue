@@ -79,6 +79,9 @@
 </script>
 <style lang="less">
 
+body{
+    background-color: white;
+}
 @blue:#2196F3;
 @black: #2B2B2B;
 @grey-1:#9E9E9E;

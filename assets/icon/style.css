@@ -97,6 +97,9 @@
 .icon-love:before {
   content: "\f004";
 }
-.icon-share:before {
+.icon-share-1:before {
   content: "\f064";
+}
+.my-swiper .swiper-pagination .swiper-pagination-bullet-active{
+  background:white !important;
 }

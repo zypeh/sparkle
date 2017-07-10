@@ -70,7 +70,6 @@
       text-align: center;
       font-size: 38px;
       font-weight: 700;
-      background-color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -103,6 +102,7 @@
   }
   .card{
     color:inherit!important;
+    background-color: white;
   }
   .card:hover{
     text-decoration: none;
