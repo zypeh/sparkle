@@ -95,6 +95,7 @@
   }
   .card-image img{
     height: 200px;
+    width:100%;
   }
   .card-footer{
     font-size: 1.1rem;

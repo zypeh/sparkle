@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'Doboom',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -16,7 +16,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#2196F3' },
   /**
    * Plugins
    */
@@ -30,8 +30,8 @@ module.exports = {
     { src: '~assets/spectre/spectre.less', lang: 'less' },
     { src: '~assets/spectre/spectre-exp.less', lang: 'less' },
     { src: '~assets/spectre/spectre-icons.less', lang: 'less' },
+    'swiper/dist/css/swiper.css',
     '~assets/icon/style.css',
-    'swiper/dist/css/swiper.css'
   ],
   /*
   ** Build configuration

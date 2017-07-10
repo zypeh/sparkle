@@ -9,7 +9,7 @@
           </a>
         </div>
       </div>
-      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
     </div>
     <div v-for="slide in slides">
       <div class="modal" :id="slide.img">
@@ -31,11 +31,11 @@
     return {
       swiperOption: {
 			  pagination: '.swiper-pagination',
-          slidesPerView: 1,
-          paginationClickable: true,
-          spaceBetween: 30,
-          mousewheelControl: true,
-          autoHeight: true
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        mousewheelControl: true,
+        autoHeight: true
 			},
     }
   },
@@ -65,7 +65,7 @@
 }
 
 .my-swiper .swiper-pagination > .swiper-pagination-bullet {
-	background-color: white;
+	background-color: #fff !important;
 }
 
 .modal:target .modal-container, .modal.active .modal-container{
@@ -73,6 +73,10 @@
 }
 .modal-body{
   max-height:inherit !important;
+  padding:0px;
+}
+.modal{
+  line-height:0px;
 }
 </style>
 

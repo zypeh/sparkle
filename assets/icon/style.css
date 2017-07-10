@@ -82,7 +82,7 @@
 .icon-explore:before {
   content: "\e87a";
 }
-.icon-mail:before {
+.icon-mail-1:before {
   content: "\e0e1";
 }
 .icon-notifications:before {
@@ -99,7 +99,4 @@
 }
 .icon-share-1:before {
   content: "\f064";
-}
-.my-swiper .swiper-pagination .swiper-pagination-bullet-active{
-  background:white !important;
 }
