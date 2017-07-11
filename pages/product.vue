@@ -4,7 +4,7 @@
       <div class="columns">
         
         <div class="col-7 column product-content">
-          <div class="area">
+          <div class="area" style="padding-top:0px;">
             <h2>Folkk</h2>
             <p>Folkk is a social business that connects Balkan rural artisans with emerging young designers to make the highest quality homeware.</p>
           </div>
@@ -22,34 +22,67 @@
           </div>
 
           <div class="tx-tabs">
-            <div class="tx-tab active">Introduction</div>
-            <div class="tx-tab">Timeline</div>
-            <div class="tx-tab">Comments</div>
+            <a class="active">Introduction</a>
+            <a>Timeline</a>
+            <a>Comments</a>
           </div>
-          <div style="height:1000px;"></div>
+          <div class="tx-tab text-center" id="#intro">
+            <div class="area">
+              <h3>Our Ideas</h3>
+              <p>Our aim is to preserve centuries-long legacy of craftsmanship of the Balkan artisans, by providing them with a steady income, as well as to give the locally designed and manufactured products worldwide visibility through our online platform. We make sure to provide ethical and fair compensation to all the people involved in the production and supply chain. Folkk is an initiative of Nova Iskra creative hub from Belgrade, Serbia.</p>
+            </div>
+						<div class="area">
+              <h3>Our Products</h3>
+              <p>All our product are made of 100% natural, carefully and locally sourced materials, grown and harvested around our country side.</p>
+            </div>
+            <div class="area">
+              <h3>TAPA</h3>
+              <p>- Wooden serving & cutting board -<br>This modular, triform serving board lets you arrange a compelling dinner or snack arrangement with ease. You can use it as a single large board, or play around with trapeze-like cuts and use the segments to make up your own, unique table setting.</p>
+            </div>
+          </div>
+					<button :click="hello()">{{scroll}}</button>
         </div>
-
         <!-- Gallery -->
         <div class="col-5 column">
-        <div id="side-gallery">
-          <gallery :slides="data.slides"></gallery>
+          <div id="side-gallery">
+            <gallery :slides="data.slides"></gallery>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- 放置Gallery的modal -->
+    <div v-for="slide in data.slides">
+      <div class="modal" :id="slide.img" style="z-index:999999;">
+        <a class="modal-overlay" href="#"></a>
+          <div class="modal-container">
+            <div class="modal-body">
+              <img :src="slide.img">
+            </div>
+        </div>
+      </div> 
     </div>
   </section>
 </template>
 <script>
 import gallery    from '~components/gallery.vue';
 import data    from '../data/index';
-  export default {
+	export default {
     components: {
     gallery,
   },
   data(){
-    return{ data: data }
+		return{ 
+      data: data, 
+			scroll:123,
+    }
   },
-    layout: 'normal',
+	methods:{
+		hello(){
+    	this.scroll = this.$el.offsetHeight
+		}
+	},
+	layout: 'normal',
   }
 </script>
 
@@ -112,23 +145,23 @@ import data    from '../data/index';
     }
     .area{
       padding:10px 0px;
-      &:first-child{
-        padding-top:0px;
-      }
     }
   }
   .tx-tabs{
     border-bottom:@border-grey;
     position:sticky;
-    top:82px;
+    top:83px;
 		position: -webkit-sticky;
+    z-index:400;
+    background-color:white;
 
-    .tx-tab{
+    a{
       display:inline-block;
       padding:10px;
       border-bottom:solid 2px transparent;
       transition:border 200ms;
       cursor:pointer;
+      color:@black;
 
       &:hover{
         border-color:@blue;
@@ -141,7 +174,21 @@ import data    from '../data/index';
 	
   #side-gallery{
     position:sticky;
-    top:100px;
+    top:92px;
 		position: -webkit-sticky;
+  }
+  .modal:target .modal-container, .modal.active .modal-container{
+    max-width:inherit !important;
+  }
+  .modal-body{
+    max-height:inherit !important;
+    padding:0px;
+  }
+  .modal{
+    line-height:0px;
+    z-index:1000;
+  }
+  .modal-container{
+    z-index:999;
   }
 </style>

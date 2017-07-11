@@ -97,7 +97,7 @@ body{
 .navbar-container{
   position: fixed;
   top: 0;
-  z-index: 999;
+  z-index: 200;
   width: 100%;
   background-color: white;
   border-bottom:1px solid rgba(0,0,0,.0975);
