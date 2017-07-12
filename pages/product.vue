@@ -22,9 +22,9 @@
           </div>
 
           <div class="tx-tabs">
-            <a class="active">Introduction</a>
-            <a>Timeline</a>
-            <a>Comments</a>
+            <a href="#" class="active">Introduction</a>
+            <a href="#">Timeline</a>
+            <a href="#">Comments</a>
           </div>
           <div class="tx-tab text-center" id="#intro">
             <div class="area">
@@ -39,13 +39,36 @@
               <h3>TAPA</h3>
               <p>- Wooden serving & cutting board -<br>This modular, triform serving board lets you arrange a compelling dinner or snack arrangement with ease. You can use it as a single large board, or play around with trapeze-like cuts and use the segments to make up your own, unique table setting.</p>
             </div>
+						<div class="area">
+              <h3>PLATO</h3>
+              <p>- Two-sided wooden plate -<br>Enhancing the functionality of a much-used everyday object such as a plate, this beautifully imagined and carefully crafted piece has a two-sided design. Use Plato for everyday meals or arrange a unique combination of finger food and nibbles to share in those special moments.</p>
+            </div>
+						<div class="area">
+              <h3>About us</h3>
+              <p>Folkk is initiated by the team of Nova Iskra, a creative hub founded in Belgrade, Serbia, that empowers emerging creative professionals and helps develop innovative businesses. Nova Iskra aims to strengthen local and regional economies and support people on the social margins, in a creative approach that is rooted in design-thinking process. </p>
+            </div>
+            <div class="area">
+              <h3>Makers</h3>
+              <div class="maker">
+                  <div class="maker-img"></div>
+              </div>
+            </div>
           </div>
-					<button :click="hello()">{{scroll}}</button>
         </div>
         <!-- Gallery -->
         <div class="col-5 column">
           <div id="side-gallery">
             <gallery :slides="data.slides"></gallery>
+            <div class="action">
+              <p>
+              19,300 followers<br>
+              <a href="#"><span class="icomoon icon-social"></span></a>
+              <a href="#"><span class="icomoon icon-social2"></span></a>
+              <a href="#"><span class="icomoon icon-mail-1"></span></a>
+              <a href="#"><span class="icomoon icon-copy"></span></a>
+              </p> 
+              <div class="btn">Follow</div>
+            </div>
           </div>
         </div>
       </div>
@@ -73,14 +96,10 @@ import data    from '../data/index';
   },
   data(){
 		return{ 
-      data: data, 
-			scroll:123,
+      data: data,
     }
   },
 	methods:{
-		hello(){
-    	this.scroll = this.$el.offsetHeight
-		}
 	},
 	layout: 'normal',
   }
@@ -176,6 +195,27 @@ import data    from '../data/index';
     position:sticky;
     top:92px;
 		position: -webkit-sticky;
+    .action{
+      width:100%;
+      display:inline-flex;
+      justify-content:space-between;
+      align-items:center;
+      
+      padding:10px 0px;
+      .btn{
+        width:100px;
+      }
+      p{
+        align-self:stretch;
+        font-size:1.7rem;
+        padding-bottom:0.7rem;
+        .icomoon{
+          padding-right:5px;
+          font-size:2rem;
+          color:@black;
+        }      
+      }
+    }
   }
   .modal:target .modal-container, .modal.active .modal-container{
     max-width:inherit !important;
@@ -190,5 +230,8 @@ import data    from '../data/index';
   }
   .modal-container{
     z-index:999;
+  }
+  a:focus{
+    box-shadow:none;
   }
 </style>

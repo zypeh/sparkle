@@ -65,7 +65,5 @@
 .my-swiper .swiper-pagination > .swiper-pagination-bullet {
 	background-color: #fff !important;
 }
-
-
 </style>
 
