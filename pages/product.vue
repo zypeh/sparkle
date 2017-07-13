@@ -21,12 +21,18 @@
             <p><span class="icomoon icon-date"></span> Created in 20 May 2017</p>
           </div>
 
+          <!-- Tabs -->
           <div class="tx-tabs">
-            <a href="#" class="active">Introduction</a>
-            <a href="#">Timeline</a>
-            <a href="#">Comments</a>
+            <a v-on:click="tabs(1)" 
+            :class="[ tab == 1 ? 'active': '' ]">Introduction</a>
+            <a v-on:click="tabs(2)"
+            :class="[ tab == 2 ? 'active': '' ]">Timeline</a>
+            <a v-on:click="tabs(3)"
+            :class="[ tab == 3 ? 'active': '' ]">Comment</a>
           </div>
-          <div class="tx-tab text-center" id="#intro">
+
+          <!-- Introduction tab -->
+          <div v-if="tab == 1" class="tx-tab text-center">
             <div class="area">
               <h3>Our Ideas</h3>
               <p>Our aim is to preserve centuries-long legacy of craftsmanship of the Balkan artisans, by providing them with a steady income, as well as to give the locally designed and manufactured products worldwide visibility through our online platform. We make sure to provide ethical and fair compensation to all the people involved in the production and supply chain. Folkk is an initiative of Nova Iskra creative hub from Belgrade, Serbia.</p>
@@ -54,6 +60,12 @@
               </div>
             </div>
           </div>
+
+          <!-- Timeline tab -->
+          <div v-if="tab == 2">
+            <timeline/>
+          </div>
+
         </div>
         <!-- Gallery -->
         <div class="col-5 column">
@@ -88,20 +100,26 @@
   </section>
 </template>
 <script>
-import gallery    from '~components/gallery.vue';
-import data    from '../data/index';
+import gallery  from '~components/gallery.vue';
+import timeline from '~components/timeline.vue';
+import data     from '../data/index';
 	export default {
     components: {
-    gallery,
-  },
-  data(){
-		return{ 
-      data: data,
-    }
-  },
-	methods:{
-	},
-	layout: 'normal',
+      gallery,
+      timeline,
+    },
+    data(){
+      return{
+        data: data,
+        tab: 1,
+      }
+    },
+    methods:{
+      tabs(tabindex){
+       this.tab = tabindex
+      }
+    },
+    layout: 'normal',
   }
 </script>
 
@@ -208,7 +226,6 @@ import data    from '../data/index';
       p{
         align-self:stretch;
         font-size:1.7rem;
-        padding-bottom:0.7rem;
         .icomoon{
           padding-right:5px;
           font-size:2rem;

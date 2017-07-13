@@ -36,7 +36,7 @@
   export default{
     data(){return{
 			flipin:true,
-			menushow:true,
+			menushow: true,
     }},
     props:
     {
