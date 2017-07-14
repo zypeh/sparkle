@@ -109,7 +109,6 @@
           <div class="tips">Press enter to comment</div>
         </div>
       </div>
-      </div>
     </div>
     <!-- NewsFeed Card End -->
   </section>  
@@ -125,10 +124,6 @@ export default{
 
   props:{
     cards  : { default: null },
-  },
-
-  data(){
-    return{}
   },
 
   methods: {

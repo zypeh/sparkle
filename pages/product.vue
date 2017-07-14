@@ -5,20 +5,20 @@
         
         <div class="col-7 column product-content">
           <div class="area" style="padding-top:0px;">
-            <h2>Folkk</h2>
-            <p>Folkk is a social business that connects Balkan rural artisans with emerging young designers to make the highest quality homeware.</p>
+            <h2>{{intro.name}}</h2>
+            <p>{{intro.desc}}</p>
           </div>
           <div class="divider"></div>
           <div class="area">
-            <div class="creator">
-              <p>Design • Food • Lifestyle<br>
-                Created by <a href="#">GoldenJet</a>
+            <div class="creator" >
+              <p>{{intro.tags}}<br>
+                Created by <a href="#">{{intro.creator}}</a>
               </p>
-              <span class="avatar avatar-lg"><img src="user.png"></span>
+              <span class="avatar avatar-lg"><img :src="intro.creator_img"></span>
             </div>
-            <p><span class="icomoon icon-map"></span> Kuala Lumpur, Malaysia</p>
-            <p><span class="icomoon icon-mail-1"></span> folkk-support@gmail.com</p>
-            <p><span class="icomoon icon-date"></span> Created in 20 May 2017</p>
+            <p><span class="icomoon icon-map"></span> {{intro.location}}</p>
+            <p><span class="icomoon icon-mail-1"></span> {{intro.email}}</p>
+            <p><span class="icomoon icon-date"></span> Created in {{intro.date}}</p>
           </div>
 
           <!-- Tabs -->
@@ -32,38 +32,20 @@
           </div>
 
           <!-- Introduction tab -->
-          <div v-if="tab == 1" class="tx-tab text-center">
+          <div v-if="tab == 1" class="tx-tab text-center" v-for="content in intro.content">
             <div class="area">
-              <h3>Our Ideas</h3>
-              <p>Our aim is to preserve centuries-long legacy of craftsmanship of the Balkan artisans, by providing them with a steady income, as well as to give the locally designed and manufactured products worldwide visibility through our online platform. We make sure to provide ethical and fair compensation to all the people involved in the production and supply chain. Folkk is an initiative of Nova Iskra creative hub from Belgrade, Serbia.</p>
-            </div>
-						<div class="area">
-              <h3>Our Products</h3>
-              <p>All our product are made of 100% natural, carefully and locally sourced materials, grown and harvested around our country side.</p>
-            </div>
-            <div class="area">
-              <h3>TAPA</h3>
-              <p>- Wooden serving & cutting board -<br>This modular, triform serving board lets you arrange a compelling dinner or snack arrangement with ease. You can use it as a single large board, or play around with trapeze-like cuts and use the segments to make up your own, unique table setting.</p>
-            </div>
-						<div class="area">
-              <h3>PLATO</h3>
-              <p>- Two-sided wooden plate -<br>Enhancing the functionality of a much-used everyday object such as a plate, this beautifully imagined and carefully crafted piece has a two-sided design. Use Plato for everyday meals or arrange a unique combination of finger food and nibbles to share in those special moments.</p>
-            </div>
-						<div class="area">
-              <h3>About us</h3>
-              <p>Folkk is initiated by the team of Nova Iskra, a creative hub founded in Belgrade, Serbia, that empowers emerging creative professionals and helps develop innovative businesses. Nova Iskra aims to strengthen local and regional economies and support people on the social margins, in a creative approach that is rooted in design-thinking process. </p>
-            </div>
-            <div class="area">
-              <h3>Makers</h3>
-              <div class="maker">
-                  <div class="maker-img"></div>
-              </div>
+              <h3>{{content.title}}</h3>
+              <p>{{content.content}}</p>
             </div>
           </div>
 
           <!-- Timeline tab -->
-          <div v-if="tab == 2">
-            <timeline/>
+          <div v-if="tab == 2" class="tx-tab">
+            <timeline :data="data.product_timelines" ></timeline>
+          </div>
+
+          <div v-if="tab == 3" class="tx-tab">
+            <comment :comments="data.product_comments" ></comment>
           </div>
 
         </div>
@@ -73,7 +55,7 @@
             <gallery :slides="data.slides"></gallery>
             <div class="action">
               <p>
-              19,300 followers<br>
+              {{intro.followers}} followers<br>
               <a href="#"><span class="icomoon icon-social"></span></a>
               <a href="#"><span class="icomoon icon-social2"></span></a>
               <a href="#"><span class="icomoon icon-mail-1"></span></a>
@@ -102,15 +84,18 @@
 <script>
 import gallery  from '~components/gallery.vue';
 import timeline from '~components/timeline.vue';
+import comment  from '~components/comment.vue';
 import data     from '../data/index';
 	export default {
     components: {
       gallery,
       timeline,
+      comment,
     },
     data(){
       return{
         data: data,
+        intro: data.product_intro,
         tab: 1,
       }
     },
@@ -207,6 +192,9 @@ import data     from '../data/index';
     .active{
       border-color:@blue;
     }
+  }
+  .tx-tab{
+    margin-top:15px;
   }
 	
   #side-gallery{

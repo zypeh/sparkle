@@ -1,56 +1,16 @@
 <template>
   <div class="timeline">
-    <div class="timeline-item" id="timeline-example-1">
-      <div class="timeline-left icon-lg">
-        <a href="#timeline-example-1" class="timeline-icon tooltip" data-tooltip="March 2016"></a>
-      </div>
-      <div class="timeline-content">
-        <div class="tile">
-          <div class="tile-content">
-            <p class="tile-subtitle">March 2016</p>
-            <p class="tile-title">Initial commit</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="timeline-item" id="timeline-example-2">
+    <div class="timeline-item" v-for="(timeline,index) in data">
       <div class="timeline-left">
-        <a href="#timeline-example-2" class="timeline-icon tooltip" data-tooltip="hello">
+        <a :href="'#timeline-example-'+ index" class="timeline-icon tooltip" :data-tooltip="timeline.time">
           <i class="icon icon-check"></i>
         </a>
       </div>
       <div class="timeline-content">
         <div class="tile">
           <div class="tile-content">
-            <p class="tile-subtitle">February 2017</p>
-            <p class="tile-title">New Documents experience</p>
-            <p class="tile-title"><a href="components.html#bars">Bars</a>: represent the progress of a task</p>
-            <p class="tile-title"><a href="components.html#steps">Steps</a>: progress indicators of a sequence of task steps</p>
-            <p class="tile-title"><a href="components.html#tiles">Tiles</a>: repeatable or embeddable information blocks</p>
-          </div>
-          <div class="tile-action">
-            <button class="btn">View</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="timeline-item" id="timeline-example-3">
-      <div class="timeline-left">
-        <a href="#timeline-example-3" class="timeline-icon tooltip" data-tooltip="March 2017">
-          <i class="icon icon-check"></i>
-        </a>
-      </div>
-      <div class="timeline-content">
-        <div class="tile">
-          <div class="tile-content">
-            <p class="tile-subtitle">March 2017</p>
-            <p class="tile-title"><a href="elements.html#icons">Icons</a>: single-element, responsive and pure CSS icons</p>
-            <p class="tile-title"><a href="components.html#popovers">Popovers</a>: small overlay content containers</p>
-            <p class="tile-title"><a href="experimentals.html#calendars">Calendars</a>: date or date range picker and events display</p>
-            <p class="tile-title"><a href="experimentals.html#carousels">Carousels</a>: slideshows for cycling images</p>
-          </div>
-          <div class="tile-action">
-            <button class="btn">View</button>
+            <p class="tile-subtitle">{{timeline.time}}</p>
+            <card :cards="[timeline.card]"></card>
           </div>
         </div>
       </div>
@@ -58,7 +18,14 @@
   </div>
 </template>
 <script>
+import card from "~components/card.vue";
 	export default {
+    components:{
+      card,
+    },
+    props:{
+      data  : { default: null },
+    },
   }
 </script>
 
@@ -80,6 +47,9 @@
   .icon{
     top:1.5px;
   }
+}
+.timeline{
+  margin-top:40px;
 }
 
 </style>
