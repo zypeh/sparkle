@@ -32,10 +32,35 @@
           </div>
 
           <!-- Introduction tab -->
-          <div v-if="tab == 1" class="tx-tab text-center" v-for="content in intro.content">
-            <div class="area">
+          <div v-if="tab == 1" class="tx-tab text-center">
+            <div class="area"  v-for="content in intro.content">
               <h3>{{content.title}}</h3>
               <p>{{content.content}}</p>
+            </div>
+            <div class="area">
+              <h3>Makers</h3>
+              <div class="tile text-left">
+                <div class="tile-icon">
+                  <figure class="avatar avatar-lg">
+                    <img src="user.png" />
+                  </figure>
+                </div>
+                <div class="tile-content">
+                  <a href="#"   class="tile-title">Linus everland</a>
+                  <p class="tile-subtitle">Zypeh has been running his woodwork workshop for more than two decades. Zy's workshop is a small family business, with his two sons Peter and Srdan already well-versed in both the basics and the secrets of the craft. Working with Folkk, he contributed invauable insights into how Tapa boards and Plato plates shold be adjusted , treated and maintained, as well as which sorts of wood will offter the best results and textures.</p>
+                </div>
+              </div>
+              <div class="tile text-left">
+                <div class="tile-icon">
+                  <figure class="avatar avatar-lg">
+                    <img src="user.png" />
+                  </figure>
+                </div>
+                <div class="tile-content">
+                  <a href="#"   class="tile-title">Linus everland</a>
+                  <p class="tile-subtitle">Zypeh has been running his woodwork workshop for more than two decades. Zy's workshop is a small family business, with his two sons Peter and Srdan already well-versed in both the basics and the secrets of the craft. Working with Folkk, he contributed invauable insights into how Tapa boards and Plato plates shold be adjusted , treated and maintained, as well as which sorts of wood will offter the best results and textures.</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -222,6 +247,17 @@ import data     from '../data/index';
       }
     }
   }
+  .tile-title {
+    line-height: 2rem;
+    font-size:1.7rem;
+    font-weight:600;
+    color:@black;
+  }
+  .tile-subtitle {
+    font-size:1.7rem;
+    font-weight:300;
+    color:@black;
+  }
   .modal:target .modal-container, .modal.active .modal-container{
     max-width:inherit !important;
   }
@@ -236,7 +272,5 @@ import data     from '../data/index';
   .modal-container{
     z-index:999;
   }
-  a:focus{
-    box-shadow:none;
-  }
+
 </style>

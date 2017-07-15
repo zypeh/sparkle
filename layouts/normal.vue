@@ -63,10 +63,21 @@
     </header>
     <!-- content -->
     <main class="content" role="main" style="margin-top:82px;">
-      <nuxt/>
+      <nuxt></nuxt>
     </main>
     <footer>
-      
+      <div class="divider"></div>
+      <div class="container">
+        <div class="columns">
+          <div class="text-left col-5">@2017 Slashwork, Inc.</div>
+          <div class="text-center col-2"><img src="logo.svg"></div>
+          <div class="text-right col-5">
+            <a href="#">Term</a>
+            <a href="#">Privacy</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </div>
 </template>
@@ -93,6 +104,18 @@ body{
 
 @border-grey:1px solid rgba(0,0,0,.0975);
 
+.blue-text{
+  color:@blue;
+}
+a{
+  transition:color 200ms;
+  &:focus{
+    box-shadow:none;
+  }
+  &:hover{
+    color:@blue;
+  }
+}
 /* navbar (default.vue) */
 .navbar-container{
   position: fixed;
@@ -201,6 +224,26 @@ body{
     .navbar-container .navbar{
       .form-input{
         width: auto;
+      }
+    }
+  }
+}
+footer{
+  .container{
+    max-width:980px;
+    padding:5px 0px;
+    /* Logo */
+    img{
+      height: 35px;
+    }
+    .col-5{
+      padding:5px 0px;
+      a{
+        padding:0px 10px;
+        color:@black;
+        &:hover{
+          text-decoration:underline;
+        }
       }
     }
   }
