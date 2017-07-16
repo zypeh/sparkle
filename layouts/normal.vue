@@ -89,145 +89,11 @@
 	}
 </script>
 <style lang="less">
-
+@import '~assets/tex/navbar.less';
 body{
     background-color: white;
 }
-@blue:#2196F3;
-@black: #2B2B2B;
-@grey-1:#9E9E9E;
-@grey-2:#95989A;
-@grey-3:#616161;
-@grey-4:#E5E5E5;
-@red:#f44336;
-@background-1:#FAFAFA;
 
-@border-grey:1px solid rgba(0,0,0,.0975);
-
-.blue-text{
-  color:@blue;
-}
-a{
-  transition:color 200ms;
-  &:focus{
-    box-shadow:none;
-  }
-  &:hover{
-    color:@blue;
-  }
-}
-/* navbar (default.vue) */
-.navbar-container{
-  position: fixed;
-  top: 0;
-  z-index: 200;
-  width: 100%;
-  background-color: white;
-  border-bottom:1px solid rgba(0,0,0,.0975);
-  
-  .navbar{
-    margin: 0 auto;
-    min-width: 290px;
-    max-width: 960px;
-    padding: 20px 0px;
-    
-    /* Logo */
-    .logo{
-      img ,span{
-        display: inline-block;
-        vertical-align: middle;
-      }
-      img{
-        height: 35px;
-      }
-      span{
-        font-size: 20px;
-        padding: 5px;
-        color:@blue;
-      }
-    }
-
-    /* Search bar */
-    .has-icon-right{
-      /* 把 Search bar 向右移15px [美观] */
-      margin-left: 15px;
-    }
-    .form-input{
-      width: 300px;
-      padding: 0rem 1.2rem;
-      border-radius: 3px;
-    }
-    .icon-search:before{
-      width:11px;
-      height: 11px;
-    }
-    .icon-search{
-      margin-right: 10px;
-    }
-
-    /* 那三个icon */
-    .nav-icon{
-      font-size:25px;
-      color:#2b2b2b;
-      margin:2.5px 0px;
-      &:hover,&:focus{
-        box-shadow:none;
-      }
-    }
-    .add.nav-icon{
-      margin:0px;
-      font-size:30px;
-    }
-
-    .dropdown{
-      margin-left:20px;
-      .avatar-tx{
-        width:32px;
-        height:32px;
-      }
-      .avatar{
-        margin:5px 0px;
-      }
-    }
-  }
-}
-
-/*
-  Responsive
-*/
-/* Large Device */
-@media screen {
-
-  @media (max-width: 980px) {
-    .navbar-container .navbar{
-      padding: 10px 10px;
-
-      .navbar-brand{
-        width: 125px;
-      }
-    }
-  }
-  @media (max-width: 601px) {
-    .navbar-container .navbar{
-      .navbar-brand span{
-      display: none;
-      }
-      .has-icon-right{
-        margin-left: 10px;
-      }
-      .navbar-brand{
-        width:auto;
-      }
-    }
-  }
-  @media (max-width: 480px) {
-    .navbar-container .navbar{
-      .form-input{
-        width: auto;
-      }
-    }
-  }
-}
 footer{
   .container{
     max-width:980px;
@@ -245,6 +111,14 @@ footer{
           text-decoration:underline;
         }
       }
+    }
+  }
+}
+@media (max-width: 980px) {
+  footer{
+    .container{
+      max-width:980px;
+      padding:0px 10px;
     }
   }
 }

@@ -265,5 +265,55 @@ export default{
       name:'Hellow',
       comment:'Quisque sem sem, sagittis nec scelerisque vel, malesuada at metus. Ut a fermentum enim, vel feugiat nunc. Phasellus pharetra eros sit amet lacinia vulputate. Duis posuere orci mi, posuere ultricies odio elementum eget. Proin'
     }
-  ]
+  ],
+  user_orgs:[
+    {
+      /*
+        争执超久的title
+        team, organization, startup
+      */
+      title:'Organzation',
+      menu_items:[
+        {
+          img:'logo.svg',
+          name:'Steve Rogers',
+          link:'org/steverogers',
+        }
+      ],
+    },
+    {
+      title:'Projects',
+      subtitle:'see all',
+      subtitleLink:'/project',
+      menu_items:[
+        {
+          img:'key.jpg',
+          name:'Smart key',
+          link:'project/smartkey',
+        },
+        {
+          img:'bicycle.jpg',
+          name:'Smart BIKE',
+          link:'project/smartbike',
+        },
+      ],
+    },
+    {
+      title:'Followed Projects',
+      subtitle:'see all',
+      subtitleLink:'/followedproject',
+      menu_items:[
+        {
+          img:'user.png',
+          name:'Linux',
+          link:'project/linux',
+        },
+        {
+          img:'aircooler.png',
+          name:'Air cooler',
+          link:'project/aircooler',
+        },
+      ],
+    },
+  ],
 }

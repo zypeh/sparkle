@@ -1187,6 +1187,7 @@ code {
   display: block;
   height: auto;
   max-width: 100%;
+  width:100% !important;
 }
 .img-fit-cover {
   object-fit: cover;

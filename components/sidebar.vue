@@ -28,8 +28,7 @@
 		<div class="menu-btn" @click="menushow = !menushow" >
 				<i class="icon icon-arrow-right" :class="{'menushow': menushow}"></i>
 		</div>
-
-</section>
+    </section>
 </template>
 
 <script>
@@ -46,19 +45,22 @@
 </script>
 
 <style lang="less" scoped>
-
+  section{
+    width: 100%;
+		position: sticky;
+		position: -webkit-sticky;
+		top: 80px;
+    display:block;
+    z-index:999999;
+    margin-top: -20px;
+  }
   .menu{
+    margin: 0;
     box-shadow: none;
     border: 0;
     background: none;
     padding: 0;
-    margin: 0;
-  }
-  .sidebar{
-    width: 100%;
-		position: sticky;
-		position: -webkit-sticky;
-		top: 70px;
+    
   }
   .divider{
     border:0;
@@ -131,7 +133,7 @@
 		.sidebar{
 			position: fixed;
 			background-color: white;
-			top: 60px;
+			top: 64px;
 			z-index: 900;
 			width: 250px;
 			padding:10px 10px 10px 30px;

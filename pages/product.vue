@@ -3,7 +3,8 @@
     <div class="container">
       <div class="columns">
         
-        <div class="col-7 column product-content">
+        <div class="col-7 col-md-12 column product-content">
+        
           <div class="area" style="padding-top:0px;">
             <h2>{{intro.name}}</h2>
             <p>{{intro.desc}}</p>
@@ -72,10 +73,9 @@
           <div v-if="tab == 3" class="tx-tab">
             <comment :comments="data.product_comments" ></comment>
           </div>
-
         </div>
         <!-- Gallery -->
-        <div class="col-5 column">
+        <div class="col-5 col-md-12 column gallery float-left">
           <div id="side-gallery">
             <gallery :slides="data.slides"></gallery>
             <div class="action">
@@ -90,7 +90,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
 
     <!-- 放置Gallery的modal -->
@@ -150,7 +150,7 @@ import data     from '../data/index';
 		padding-top: 20px;
 	}
   .container{
-		width: 980px;
+		max-width: 980px;
 	}
   .p-img-container{
     width: 100%;
@@ -272,5 +272,20 @@ import data     from '../data/index';
   .modal-container{
     z-index:999;
   }
+@media screen {
 
+  @media (max-width: 980px) {
+    .tx-tabs{
+      top:63px;
+    }
+    
+  }
+  @media (max-width: 840px) {
+    .columns{
+      flex-direction: column-reverse !important;
+    }
+  }
+  @media (max-width: 480px) {
+  }
+}
 </style>

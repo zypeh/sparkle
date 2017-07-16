@@ -83,4 +83,12 @@ export default {
   /* container默认padding:10px{spectrecss} */
   max-width: 600px;
 }
+@media screen {
+
+  @media (max-width: 980px) {
+    .out.container{
+      padding:0px 20px;
+    }
+  }
+}
 </style>
