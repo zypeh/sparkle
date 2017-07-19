@@ -316,4 +316,24 @@ export default{
       ],
     },
   ],
+  explore:[
+    {
+      menus:[
+        {
+          /*
+            争执超久的title
+            team, organization, startup
+          */
+          title:'Categories',
+          menu_items:[
+            {
+              img:'logo.svg',
+              name:'Tech',
+              link:'org/steverogers',
+            }
+          ],
+        }
+      ],
+    },
+  ],
 }
