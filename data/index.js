@@ -335,5 +335,15 @@ export default{
         }
       ],
     },
+    {
+      products:[
+        {
+          title:'Smart Cooler',
+          link:'smartcooler',
+          img:'aircooler.png',
+          desc:'Enjoy refreshing cool air in hot summer months and much needed humidity.The Strategic Homeland Intervention, Enforcement, and Logistics Division...'
+        }
+      ]
+    },
   ],
 }

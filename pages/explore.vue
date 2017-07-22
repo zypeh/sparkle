@@ -8,59 +8,16 @@
         <div class="column col-9 col-md-12 products">
           <h4>Recent</h4>
           <div class="divider"></div>
-          <div class="tile columns">
+          <div class="tile columns" v-for="product in data.explore[1].products">
             <div class="tile-icon col-4">
-              <img src="aircooler.png" class="img-responsive">
+              <img :src="product.img" class="img-responsive">
             </div>
             <div class="tile-content col-8">
-              <p class="tile-title">Smart Cooler</p>
-              <p class="tile-subtitle">Enjoy refreshing cool air in hot summer months and much needed humidity.The Strategic Homeland Intervention, Enforcement, and Logistics Division...</p>
+              <a :href="product.link" class="tile-title">{{product.title}}</a>
+              <p class="tile-subtitle">{{product.desc}}</p>
             </div>
           </div>
-          <div class="tile columns">
-            <div class="tile-icon col-4">
-              <img src="aircooler.png" class="img-responsive">
-            </div>
-            <div class="tile-content col-8">
-              <p class="tile-title">Smart Cooler</p>
-              <p class="tile-subtitle">Enjoy refreshing cool air in hot summer months and much needed humidity.The Strategic Homeland Intervention, Enforcement, and Logistics Division...</p>
-            </div>
-          </div>
-          <div class="tile columns">
-            <div class="tile-icon col-4">
-              <img src="aircooler.png" class="img-responsive">
-            </div>
-            <div class="tile-content col-8">
-              <p class="tile-title">Smart Cooler</p>
-              <p class="tile-subtitle">Enjoy refreshing cool air in hot summer months and much needed humidity.The Strategic Homeland Intervention, Enforcement, and Logistics Division...</p>
-            </div>
-          </div>
-          <div class="tile columns">
-            <div class="tile-icon col-4">
-              <img src="aircooler.png" class="img-responsive">
-            </div>
-            <div class="tile-content col-8">
-              <p class="tile-title">Smart Cooler</p>
-              <p class="tile-subtitle">Enjoy refreshing cool air in hot summer months and much needed humidity.The Strategic Homeland Intervention, Enforcement, and Logistics Division...</p>
-            </div>
-          </div>
-          <div class="tile columns">
-            <div class="tile-icon col-4">
-              <img src="aircooler.png" class="img-responsive">
-            </div>
-            <div class="tile-content col-8">
-              <p class="tile-title">Smart Cooler</p>
-              <p class="tile-subtitle">Enjoy refreshing cool air in hot summer months and much needed humidity.The Strategic Homeland Intervention, Enforcement, and Logistics Division...</p>
-            </div>
-          </div>
-          <div class="tile columns">
-            <div class="tile-icon col-4">
-              <img src="aircooler.png" class="img-responsive">
-            </div>
-            <div class="tile-content col-8">
-              <p class="tile-title">Smart Cooler</p>
-              <p class="tile-subtitle">Enjoy refreshing cool air in hot summer months and much needed humidity.The Strategic Homeland Intervention, Enforcement, and Logistics Division...</p>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -104,9 +61,14 @@ export default {
   background-color:white;
   padding:15px;
   margin-top:20px;
+  border-radius:2px;
+  border:@border-grey;
   .tile{
     background-color:white;
     padding:10px 0px;
+    a{
+      cursor:pointer;
+    }
     .tile-title{
       font-size:1.7em;
     }
