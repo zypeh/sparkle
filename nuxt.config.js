@@ -32,6 +32,7 @@ module.exports = {
     { src: '~assets/spectre/spectre-icons.less', lang: 'less' },
     'swiper/dist/css/swiper.css',
     '~assets/icon/style.css',
+    { src: '~assets/global.less', lang: 'less' },
   ],
   /*
   ** Build configuration
